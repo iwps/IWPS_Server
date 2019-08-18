@@ -10,6 +10,6 @@ public interface AdministratorsDao {
     Administrators queryById(long id);
     List<Administrators> queryAll(@Param("offset") int offset,@Param("limit") int limit);
     int addAdministrators(Administrators administrators);
-    int udpateAdministrators(Administrators administrators);
+    int udpdateAdministrators(Administrators administrators);
     int deleteAdministrators(long id);
 }
