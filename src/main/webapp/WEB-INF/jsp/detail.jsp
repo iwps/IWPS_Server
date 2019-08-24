@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -27,7 +28,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    HiSEN <small>图书管理系统 - by ssm基础框架</small>
+                    HiSEN <small>管理系统</small>
                 </h1>
             </div>
         </div>

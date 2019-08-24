@@ -4,4 +4,49 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.AdministratorsDao">
     <!-- 目的：为dao接口方法提供sql语句配置 -->
+<!-- 目的：为dao接口方法提供sql语句配置 -->
+<select id="queryById" resultType="Administrators" parameterType="long">
+    <!-- 具体的sql -->
+    SELECT
+    Administrators_id,
+    name,
+    number,
+    detail
+    FROM
+    Administrators
+    WHERE
+    Administrators_id = #{AdministratorsId}
+</select>
+
+<select id="queryAll" resultType="Administrators">
+    SELECT
+    Administrators_id,
+    name,
+    number,
+    detail
+    FROM
+    Administrators
+    ORDER BY
+    Administrators_id
+    LIMIT #{offset}, #{limit}
+  </select>
+
+<update id="updateAdministrators" parameterType="Administrators">
+    UPDATE Administrators
+    SET NAME = #{name},
+    NUMBER = #{number},
+    detail = #{detail}
+    WHERE
+    book_id = #{AdministratorsId}
+    AND number > 0
+  </update>
+
+<insert id="addAdministrators">
+    INSERT INTO Administrators(`Administrators_id`, `name`, `number`,`detail`)
+    VALUES(#{AdministratorsId}, #{name}, #{number}, #{detail})
+  </insert>
+
+<delete id="deleteAdministratorsById">
+    DELETE FROM Administrators WHERE Administrators_id = #{AdministratorsId}
+  </delete>
 </mapper>
