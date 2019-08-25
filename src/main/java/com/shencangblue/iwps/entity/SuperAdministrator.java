@@ -1,4 +1,4 @@
 package com.shencangblue.iwps.entity;
 
-public class SuperAdministrators {
+public class SuperAdministrator {
 }

@@ -1,5 +1,5 @@
 package com.shencangblue.iwps.dao;
 
-public class NatatoriumDao {
+public interface NatatoriumDao {
 
 }

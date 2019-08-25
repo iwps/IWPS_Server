@@ -1,4 +1,4 @@
 package com.shencangblue.iwps.dao;
 
-public class SwimmingPoolDao {
+public interface SwimmingPoolDao {
 }
