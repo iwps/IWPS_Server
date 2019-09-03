@@ -11,6 +11,15 @@ public class User {
     private String detail;
     private String email;
     private String phone;
+    private String waterPressure;
+
+    public String getWaterPressure() {
+        return waterPressure;
+    }
+
+    public void setWaterPressure(String waterPressure) {
+        this.waterPressure = waterPressure;
+    }
 
     public long getUserId() {
         return userId;

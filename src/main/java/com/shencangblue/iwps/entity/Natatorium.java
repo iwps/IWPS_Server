@@ -10,7 +10,6 @@ public class Natatorium {
     private String swimmingPoolAffiliated;
     private String NumberOfPools;
     private String waterTemperature;
-    private String waterPressure;
     private String detail;
 
     public long getNatatoriumId() {
@@ -59,14 +58,6 @@ public class Natatorium {
 
     public void setWaterTemperature(String waterTemperature) {
         this.waterTemperature = waterTemperature;
-    }
-
-    public String getWaterPressure() {
-        return waterPressure;
-    }
-
-    public void setWaterPressure(String waterPressure) {
-        this.waterPressure = waterPressure;
     }
 
     public String getDetail() {

@@ -30,7 +30,7 @@ public class AdministratorsServiceImpl implements AdministratorsService {
 
     @Override
     public int updateAdministrators(Administrators administrators) {
-        return administratorsDao.udpdateAdministrators(administrators);
+        return administratorsDao.updateAdministrators(administrators);
     }
 
     @Override
