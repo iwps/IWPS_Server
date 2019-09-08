@@ -8,7 +8,7 @@ public class Administrators {
     private String name;
     private String avatar;
     private String detail;
-    private String swimmingPoolAffiliated;
+    private String swimmingPoolId;
     private String password;
 
     public long getAdministratorId() {
@@ -43,12 +43,12 @@ public class Administrators {
         this.detail = detail;
     }
 
-    public String getSwimmingPoolAffiliated() {
-        return swimmingPoolAffiliated;
+    public String getSwimmingPoolId() {
+        return swimmingPoolId;
     }
 
-    public void setSwimmingPoolAffiliated(String swimmingPoolAffiliated) {
-        this.swimmingPoolAffiliated = swimmingPoolAffiliated;
+    public void setSwimmingPoolId(String swimmingPoolId) {
+        this.swimmingPoolId = swimmingPoolId;
     }
 
     public String getPassword() {

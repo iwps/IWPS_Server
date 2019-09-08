@@ -9,7 +9,7 @@ public class Lifeguard {
     private String password;
     private String avatar;
     private String detail;
-    private String swimmingPoolAffiliated;
+    private String swimmingPoolId;
     private String phone;
 
     public String getPhone() {
@@ -60,11 +60,11 @@ public class Lifeguard {
         this.detail = detail;
     }
 
-    public String getSwimmingPoolAffiliated() {
-        return swimmingPoolAffiliated;
+    public String getSwimmingPoolId() {
+        return swimmingPoolId;
     }
 
-    public void setSwimmingPoolAffiliated(String swimmingPoolAffiliated) {
-        this.swimmingPoolAffiliated = swimmingPoolAffiliated;
+    public void setSwimmingPoolId(String swimmingPoolId) {
+        this.swimmingPoolId = swimmingPoolId;
     }
 }

@@ -7,7 +7,7 @@ public class Natatorium {
     private  long natatoriumId;
     private  String name;
     private  float waterLevel;
-    private String swimmingPoolAffiliated;
+    private String swimmingPoolId;
     private String NumberOfPools;
     private String waterTemperature;
     private String detail;
@@ -36,12 +36,12 @@ public class Natatorium {
         this.waterLevel = waterLevel;
     }
 
-    public String getSwimmingPoolAffiliated() {
-        return swimmingPoolAffiliated;
+    public String getSwimmingPoolId() {
+        return swimmingPoolId;
     }
 
-    public void setSwimmingPoolAffiliated(String swimmingPoolAffiliated) {
-        this.swimmingPoolAffiliated = swimmingPoolAffiliated;
+    public void setSwimmingPoolId(String swimmingPoolId) {
+        this.swimmingPoolId = swimmingPoolId;
     }
 
     public String getNumberOfPools() {
