@@ -8,10 +8,12 @@
 <select id="queryById" resultType="Administrators" parameterType="long">
     <!-- 具体的sql -->
     SELECT
-    AdministratorId,
+    administratorId,
     name,
-    number,
-    detail
+    avatar,
+    swimmingPoolId,
+    password,
+    detail,
     FROM
     Administrators
     WHERE
@@ -20,9 +22,11 @@
 
 <select id="queryAll" resultType="Administrators">
     SELECT
-    AdministratorId,
+    administratorId,
     name,
-    number,
+    avatar,
+    swimmingPoolId,
+    password,
     detail
     FROM
     Administrators
@@ -33,18 +37,20 @@
 
 <update id="updateAdministrators" parameterType="Administrators">
     UPDATE Administrators
-    SET NAME = #{name},
-    NUMBER = #{number},
-    detail = #{detail}
+    SET name = #{name},
+    avatar = #{avatar},
+    swimmingPoolId = #{swimmingPoolId},
+    password = #{password},
+    detail = #{detail},
     WHERE
-    book_id = #{AdministratorsId}
+    administratorId = #{AdministratorId}
     AND number > 0
   </update>
 
 <insert id="addAdministrators">
-    INSERT INTO Administrators(`AdministratorId`, `name`, `number`,`detail`)
-    VALUES(#{AdministratorId}, #{name}, #{number}, #{detail})
-  </insert>
+    INSERT INTO Administrators(`administratorId`, `name`,`avatar`,`swimmingPoolId`,`password`,`detail`)
+    VALUES(#{AdministratorId}, #{name}, #{avatar},#{swimmingPoolId},#{password},#{detail})
+</insert>
 
 <delete id="deleteAdministratorsById">
     DELETE FROM Administrators WHERE AdministratorId = #{AdministratorId}
