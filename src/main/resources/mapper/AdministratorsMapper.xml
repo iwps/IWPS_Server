@@ -8,26 +8,26 @@
 <select id="queryById" resultType="Administrators" parameterType="long">
     <!-- 具体的sql -->
     SELECT
-    Administrators_id,
+    AdministratorId,
     name,
     number,
     detail
     FROM
     Administrators
     WHERE
-    Administrators_id = #{AdministratorsId}
+    AdministratorId = #{AdministratorsId}
 </select>
 
 <select id="queryAll" resultType="Administrators">
     SELECT
-    Administrators_id,
+    AdministratorId,
     name,
     number,
     detail
     FROM
     Administrators
     ORDER BY
-    Administrators_id
+    AdministratorId
     LIMIT #{offset}, #{limit}
   </select>
 
@@ -42,11 +42,11 @@
   </update>
 
 <insert id="addAdministrators">
-    INSERT INTO Administrators(`Administrators_id`, `name`, `number`,`detail`)
-    VALUES(#{AdministratorsId}, #{name}, #{number}, #{detail})
+    INSERT INTO Administrators(`AdministratorId`, `name`, `number`,`detail`)
+    VALUES(#{AdministratorId}, #{name}, #{number}, #{detail})
   </insert>
 
 <delete id="deleteAdministratorsById">
-    DELETE FROM Administrators WHERE Administrators_id = #{AdministratorsId}
+    DELETE FROM Administrators WHERE AdministratorId = #{AdministratorId}
   </delete>
 </mapper>
