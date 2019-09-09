@@ -12,8 +12,12 @@
 <br />
 作者：shencnagblue
 <br />
-网站：<a href="data.shencangblue.com" target="_blank">data.shencangblue.com</a>
+数据网站：<a href="data.shencangblue.com" target="_blank">data.shencangblue.com</a>
+<br />
+管理网站：<a href="shencangblue.com" target="_blank">shencangblue.com</a>
+<br />
+web网站：<a href="live.shencangblue.com" target="_blank">live.shencangblue.com</a>
 <br /><br /><br /><br />
-管理系统：<a href="<%=appPath%>/book/list">点击前往</a>
+管理系统：<a href="<%=appPath%>/Administrators/list">点击前往</a>
 </body>
 </html>
