@@ -13,11 +13,11 @@
     avatar,
     swimmingPoolId,
     password,
-    detail,
+    detail
     FROM
-    Administrators
+    administrators
     WHERE
-    AdministratorId = #{AdministratorsId}
+    administratorId = #{administratorId}
 </select>
 
 <select id="queryAll" resultType="Administrators">
@@ -31,7 +31,7 @@
     FROM
     Administrators
     ORDER BY
-    AdministratorId
+    administratorId
     LIMIT #{offset}, #{limit}
   </select>
 
@@ -41,7 +41,7 @@
     avatar = #{avatar},
     swimmingPoolId = #{swimmingPoolId},
     password = #{password},
-    detail = #{detail},
+    detail = #{detail}
     WHERE
     administratorId = #{AdministratorId}
     AND number > 0
@@ -49,10 +49,10 @@
 
 <insert id="addAdministrators">
     INSERT INTO Administrators(`administratorId`, `name`,`avatar`,`swimmingPoolId`,`password`,`detail`)
-    VALUES(#{AdministratorId}, #{name}, #{avatar},#{swimmingPoolId},#{password},#{detail})
+    VALUES(#{administratorId}, #{name}, #{avatar},#{swimmingPoolId},#{password},#{detail})
 </insert>
 
 <delete id="deleteAdministratorsById">
-    DELETE FROM Administrators WHERE AdministratorId = #{AdministratorId}
+    DELETE FROM Administrators WHERE administratorId = #{administratorId}
   </delete>
 </mapper>

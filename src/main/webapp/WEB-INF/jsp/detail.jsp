@@ -36,8 +36,8 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <ul class="nav nav-tabs">
-                <li><a href="<%=appPath%>/book/list">首页</a></li>
-                <li class="active"><a href="<%=appPath%>/book/detail/1003">图书具体信息</a></li>
+                <li><a href="<%=appPath%>/administrators/list">首页</a></li>
+                <li class="active"><a href="<%=appPath%>/administrators/detail/1003">管理员具体信息</a></li>
                 <li class="disabled"><a href="#">信息</a></li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    图书详情 <small>显示当前图书详细信息</small>
+                    管理员详情 <small>显示当前管理员详细信息</small>
                 </h1>
             </div>
         </div>
@@ -57,16 +57,23 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>图书编号</th>
-                    <th>图书名字</th>
-                    <th>图书数量</th>
+                    <th>管理员编号</th>
+                    <th>管理员名字</th>
+                    <th>管理员头像</th>
+                    <th>所属游泳馆</th>
+                    <th>密码</th>
+                    <th>信息</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>${requestScope.get('book').bookId}</td>
-                    <td>${requestScope.get('book').name}</td>
-                    <td>${requestScope.get('book').number}</td>
+                    <td>${requestScope.get('administrators').administratorId}</td>
+                    <td>${requestScope.get('administrators').name}</td>
+                    <td>${requestScope.get('administrators').avatar}</td>
+                    <td>${requestScope.get('administrators').swimmingPoolId}</td>
+                    <td>${requestScope.get('administrators').password}</td>
+                    <td>${requestScope.get('administrators').detail}</td>
+
                 </tr>
                 </tbody>
             </table>
@@ -75,7 +82,7 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <p>
-                <em>《${requestScope.get('book').name}》</em> ${requestScope.get('book').detail}
+                <em>${requestScope.get('administrators').name}</em> ${requestScope.get('administrators').detail}
             </p>
         </div>
     </div>

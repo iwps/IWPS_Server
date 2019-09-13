@@ -10,7 +10,7 @@
 <% String appPath = request.getContextPath(); %>
 <html>
 <head>
-    <title>图书列表</title>
+    <title>管理员列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    HiSEN <small>图书管理系统 - by ssm基础框架</small>
+                    IWPS <small>管理员</small>
                 </h1>
             </div>
         </div>
@@ -29,9 +29,9 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="<%=appPath%>/book/list">首页</a></li>
-                <li><a href="<%=appPath%>/book/detail/1000">图书具体信息</a></li>
-                <li><a href="<%=appPath%>/add.jsp">添加图书信息</a></li>
+                <li class="active"><a href="<%=appPath%>/administrators/list">首页</a></li>
+                <li><a href="<%=appPath%>/administrators/detail/1000">管理员具体信息</a></li>
+                <li><a href="<%=appPath%>/add.jsp">添加管理员信息</a></li>
                 <li class="disabled"><a href="#">信息</a></li>
             </ul>
         </div>
@@ -39,7 +39,7 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h1>图书列表 <small>显示当前图书库存信息</small></h1>
+                <h1>管理员列表 <small>显示当前管理员信息</small></h1>
             </div>
         </div>
     </div>
@@ -48,21 +48,26 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>图书编号</th>
-                    <th>图书名字</th>
-                    <th>图书数量</th>
-                    <th>操作</th>
+                    <th>管理员编号</th>
+                    <th>管理员名字</th>
+                    <th>管理员头像</th>
+                    <th>所属游泳馆</th>
+                    <th>密码</th>
+                    <th>信息</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="book" items="${requestScope.get('list')}" varStatus="status">
+                <c:forEach var="administrators" items="${requestScope.get('list')}" varStatus="status">
                     <tr>
-                        <td>${book.bookId}</td>
-                        <td>${book.name}</td>
-                        <td>${book.number}</td>
+                        <td>${administrators.administratorId}</td>
+                        <td>${administrators.name}</td>
+                        <td>${administrators.avatar}</td>
+                        <td>${administrators.swimmingPoolId}</td>
+                        <td>${administrators.password}</td>
+                        <td>${administrators.detail}</td>
                         <td>
-                            <a href="<%=appPath%>/book/detail/${book.bookId}">详情</a> |
-                            <a href="<%=appPath%>/book/del/${book.bookId}">删除</a>
+                            <a href="<%=appPath%>/administrators/detail/${administrators.administratorId}">详情</a> |
+                            <a href="<%=appPath%>/administrators/del/${administrators.administratorId}">删除</a>
                         </td>
 
                     </tr>

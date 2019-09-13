@@ -18,6 +18,6 @@
 <br />
 web网站：<a href="live.shencangblue.com" target="_blank">live.shencangblue.com</a>
 <br /><br /><br /><br />
-管理系统：<a href="<%=appPath%>/Administrators/list">点击前往</a>
+管理系统：<a href="<%=appPath%>/administrators/list">点击前往</a>
 </body>
 </html>
