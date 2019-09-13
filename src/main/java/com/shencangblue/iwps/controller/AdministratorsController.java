@@ -1,4 +1,4 @@
-package com.shencangblue.iwps.web;
+package com.shencangblue.iwps.controller;
 
 import com.shencangblue.iwps.entity.Administrators;
 import com.shencangblue.iwps.service.AdministratorsService;

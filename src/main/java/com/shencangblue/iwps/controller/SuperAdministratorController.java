@@ -1,4 +1,4 @@
-package com.shencangblue.iwps.web;
+package com.shencangblue.iwps.controller;
 
 public class SuperAdministratorController {
 }
