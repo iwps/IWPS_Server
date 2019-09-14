@@ -1,4 +1,4 @@
-package com.shencangblue.iwps.controller;
+package com.shencangblue.iwps.controller.role;
 
 import com.shencangblue.iwps.entity.Administrators;
 import com.shencangblue.iwps.service.AdministratorsService;
@@ -51,8 +51,8 @@ public class AdministratorsController {
 
     @RequestMapping(value = "/del/{administratorId}", method = RequestMethod.GET)
     @ResponseBody
-    private String deleteAdministratorsId(@PathVariable("administratorId") Long id) {
-        int i = administratorsService.deleteAdministratorsId(id);
+    private String deleteAdministratorsById(@PathVariable("administratorId") Long id) {
+        int i = administratorsService.deleteAdministratorsById(id);
         return i > 0 ? "success" : "error";
     }
 }

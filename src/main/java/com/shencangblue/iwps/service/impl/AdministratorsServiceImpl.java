@@ -30,11 +30,11 @@ public class AdministratorsServiceImpl implements AdministratorsService {
 
     @Override
     public int updateAdministrators(Administrators administrators) {
-        return administratorsDao.updateAdministrators(administrators);
+        return administratorsDao.updateAdministratorsById(administrators);
     }
 
     @Override
-    public int deleteAdministratorsId(long id) {
+    public int deleteAdministratorsById(long id) {
         return administratorsDao.deleteAdministrators(id);
     }
 

@@ -9,5 +9,5 @@ public interface UserService {
     List<User> getList(int start, int pageNum);
     int addUser(User swimmingPool);
     int updateUser(User user);
-    int deleteUser(long id);
+    int deleteUserById(long id);
 }

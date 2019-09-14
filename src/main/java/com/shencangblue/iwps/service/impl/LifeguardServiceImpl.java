@@ -34,7 +34,7 @@ public class LifeguardServiceImpl implements LifeguardService {
     }
 
     @Override
-    public int deleteLifeguardId(long id) {
-        return lifeguardDao.deleteLifeguard(id);
+    public int deleteLifeguardById(long id) {
+        return lifeguardDao.deleteLifeguardById(id);
     }
 }

@@ -32,7 +32,7 @@ public class NatatoriumServiceImpl implements NatatoriumService {
     }
 
     @Override
-    public int deleteNatatoriumId(long id) {
-        return natatoriumDao.deleteNatatorium(id);
+    public int deleteNatatoriumById(long id) {
+        return natatoriumDao.deleteNatatoriumById(id);
     }
 }

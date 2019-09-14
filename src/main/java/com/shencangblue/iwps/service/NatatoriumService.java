@@ -10,5 +10,5 @@ public interface NatatoriumService {
     List<Natatorium> getList(int start, int pageNum);
     int addNatatorium(Natatorium natatorium);
     int updateNatatorium(Natatorium natatorium);
-    int deleteNatatoriumId(long id);
+    int deleteNatatoriumById(long id);
 }

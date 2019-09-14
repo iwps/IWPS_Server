@@ -10,6 +10,6 @@ public interface UserDao {
     List<User> queryAll(@Param("offset") int offset, @Param("limit") int limit);
     int addUser(User administrators);
     int updateUser(User administrators);
-    int deleteUser(long id);
+    int deleteUserById(long id);
 
 }

@@ -9,5 +9,5 @@ public interface SuperAdministratorService {
     List<SuperAdministrator> getList(int start, int pageNum);
     int addSuperAdministrators(SuperAdministrator superAdministrator);
     int updateSuperAdministrators(SuperAdministrator superAdministrator);
-    int deleteSuperAdministratorsId(long id);
+    int deleteSuperAdministratorsById(long id);
 }

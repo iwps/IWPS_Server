@@ -33,7 +33,7 @@ public class SuperAdministratorServiceImpl implements SuperAdministratorService 
     }
 
     @Override
-    public int deleteSuperAdministratorsId(long id) {
-        return superAdministratorDao.deleteSuperAdministrator(id);
+    public int deleteSuperAdministratorsById(long id) {
+        return superAdministratorDao.deleteSuperAdministratorById(id);
     }
 }

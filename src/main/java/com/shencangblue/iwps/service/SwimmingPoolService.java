@@ -9,5 +9,5 @@ public interface SwimmingPoolService {
     List<SwimmingPool> getList(int start, int pageNum);
     int addSwimmingPool(SwimmingPool swimmingPool);
     int updateSwimmingPool(SwimmingPool swimmingPool);
-    int deleteSwimmingPool(long id);
+    int deleteSwimmingPoolById(long id);
 }

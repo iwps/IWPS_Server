@@ -32,7 +32,7 @@ public class SwimmingPoolServiceImpl implements SwimmingPoolService {
     }
 
     @Override
-    public int deleteSwimmingPool(long id) {
-        return swimmingPoolDao.deleteSwimmingPool(id);
+    public int deleteSwimmingPoolById(long id) {
+        return swimmingPoolDao.deleteSwimmingPoolById(id);
     }
 }

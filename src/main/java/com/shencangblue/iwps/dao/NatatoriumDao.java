@@ -11,6 +11,6 @@ public interface NatatoriumDao {
     List<Natatorium> queryAll(@Param("offset") int offset, @Param("limit") int limit);
     int addNatatorium(Natatorium natatorium);
     int updateNatatorium(Natatorium natatorium);
-    int deleteNatatorium(long id);
+    int deleteNatatoriumById(long id);
 
 }

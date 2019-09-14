@@ -9,6 +9,6 @@ public interface AdministratorsService {
     List<Administrators>getList(int start,int pageNum);
     int addAdministrators(Administrators administrators);
     int updateAdministrators(Administrators administrators);
-    int deleteAdministratorsId(long id);
+    int deleteAdministratorsById(long id);
 
 }

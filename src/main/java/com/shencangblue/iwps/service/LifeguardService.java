@@ -9,6 +9,6 @@ public interface LifeguardService {
     List<Lifeguard> getList(int start, int pageNum);
     int addLifeguard(Lifeguard lifeguard);
     int updateLifeguard(Lifeguard lifeguard);
-    int deleteLifeguardId(long id);
+    int deleteLifeguardById(long id);
 
 }

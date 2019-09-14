@@ -11,5 +11,5 @@ public interface SuperAdministratorDao {
     List<SuperAdministrator> queryAll(@Param("offset") int offset, @Param("limit") int limit);
     int addSuperAdministrator(SuperAdministrator superAdministrators);
     int updateSuperAdministrator(SuperAdministrator superAdministrators);
-    int deleteSuperAdministrator(long id);
+    int deleteSuperAdministratorById(long id);
 }

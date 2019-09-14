@@ -10,5 +10,5 @@ public interface LifeguardDao {
     List<Lifeguard> queryAll(@Param("offset") int offset, @Param("limit") int limit);
     int addLifeguard(Lifeguard lifeguard);
     int updateLifeguard(Lifeguard lifeguard);
-    int deleteLifeguard(long id);
+    int deleteLifeguardById(long id);
 }
