@@ -38,7 +38,10 @@
                 <h1>智能游泳馆系统</h1>
                 <span><em>IWPS</em> 信息汇聚系统</span>
                 <div class="primary-button">
-                    <a href="#services">立刻登录</a>
+                    <a href="#services">了解详情</a>
+                </div>
+                <div class="primary-button">
+                    <a href="./userService/index.html">立刻登录</a>
                 </div>
             </div>
         </div>
@@ -284,7 +287,7 @@
 
 
 
-    <script src="./static/js/vendor/jquery.min.js"></script>
+    <script src="./static/js/vendor/jquery-3.4.1.min.js"></script>
     <script>window.jQuery || document.write('<script src="./static/js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="./static/js/vendor/bootstrap.min.js"></script>
     <script src="./static/js/plugins.js"></script>
