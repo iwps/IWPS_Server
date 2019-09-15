@@ -24,17 +24,17 @@ public interface UserDao {
 
     /**
      * 添加新用户
-     * @param administrators
+     * @param user
      * @return
      */
-    int addUser(User administrators);
+    int addUser(User user);
 
     /**
      * 更新用户信息
-     * @param administrators
+     * @param user
      * @return
      */
-    int updateUser(User administrators);
+    int updateUser(User user);
 
     /**
      * 删除用户
@@ -46,7 +46,7 @@ public interface UserDao {
 
     /**
      * 根据查询条件查询用户列表-dto
-     * @param user 查询条件
+     * @param userDto 查询条件
      * @return 用户列表
      */
     List<User> select(UserDto userDto);
