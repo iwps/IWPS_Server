@@ -6,12 +6,16 @@ package com.shencangblue.iwps.entity;
 public class User {
     private long userId;
     private String name;
+    private String userAccount;
     private String password;
     private String avatar;
     private String detail;
     private String email;
     private String phone;
     private String waterPressure;
+    private String sex;
+    private String swimmingGrade;
+
 
     public String getWaterPressure() {
         return waterPressure;
@@ -75,5 +79,29 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(String userAccount) {
+        this.userAccount = userAccount;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getSwimmingGrade() {
+        return swimmingGrade;
+    }
+
+    public void setSwimmingGrade(String swimmingGrade) {
+        this.swimmingGrade = swimmingGrade;
     }
 }

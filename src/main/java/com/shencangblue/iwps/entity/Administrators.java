@@ -5,6 +5,7 @@ package com.shencangblue.iwps.entity;
  */
 public class Administrators {
     private long administratorId;
+    private String administratorAccount;
     private String name;
     private String avatar;
     private String detail;
@@ -58,4 +59,13 @@ public class Administrators {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getAdministratorAccount() {
+        return administratorAccount;
+    }
+
+    public void setAdministratorAccount(String administratorAccount) {
+        this.administratorAccount = administratorAccount;
+    }
+
 }

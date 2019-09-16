@@ -7,6 +7,8 @@ public class SwimmingPool {
     private long swimmingPoolId;
     private String name;
     private String detail;
+    private String address;
+    private String phone;
 
     public String getAddress() {
         return address;
@@ -24,8 +26,7 @@ public class SwimmingPool {
         this.phone = phone;
     }
 
-    private String address;
-    private String phone;
+
 
     public long getSwimmingPoolId() {
         return swimmingPoolId;

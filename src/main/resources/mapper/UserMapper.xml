@@ -3,5 +3,113 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.UserDao">
+    <select id="validate" resultType="User">
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail
+        from user u
+        <where>
+            1=1
+            <if test="userAccount != null">
+                and u.userAccount = #{userAccount}
+            </if>
+            <if test="name != null">
+                and u.name = #{name}
+            </if>
+            <if test="password != null">
+                and u.password = #{password}
+            </if>
+        </where>
+    </select>
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="User">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail
+        from user u
+        <where>
+            1=1
+            <if test="userAccount != null">
+                and u.userAccount = #{userAccount}
+            </if>
+            <if test="name != null">
+                and u.name = #{name}
+            </if>
+            <if test="password != null">
+                and u.password = #{password}
+            </if>
+        </where>
+        limit #{pageNum},#{limit}
+    </select>
 
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from user u
+        <where>
+            1=1
+            <if test="userAccount != null">
+                and u.userAccount = #{userAccount}
+            </if>
+            <if test="name != null">
+                and u.name = #{name}
+            </if>
+            <if test="password != null">
+                and u.password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into user(name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail)
+        select #{name},#{userAccount},#{password},#{avatar},#{swimmingGrade},#{email},#{phone},#{sex},#{waterPressure},#{detail}
+        where not exists(select 1 from user where  userAccount=#{userAccount})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectById" resultType="User">
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail
+        from user
+        where userId = #{_parameter}
+    </select>
+
+
+
+    <update id="update">
+      update user
+      <set>
+        <if test="name != null">
+            name = #{name},
+        </if>
+        <if test="userAccount != null ">
+            userAccount = #{userAccount},
+        </if>
+        <if test="password != null">
+            password = #{password},
+        </if>
+        <if test="avatar != null">
+            avatar = #{avatar},
+        </if>
+        <if test="swimmingGrade != null">
+            swimmingGrade = #{swimmingGrade},
+        </if>
+          <if test="email != null">
+              email = #{email},
+          </if>
+        <if test="phone != null">
+             phone = #{phone},
+        </if>
+        <if test="sex != null">
+            sex = #{waterPressure},
+        </if>
+        <if test="detail != null">
+            detail = #{detail},
+        </if>
+      </set>
+        where userId = #{userId}
+      <if test="userAccount != null">
+          and not exists (select 1 from(select 1 from user where user userAccount =#{userAccount} and userId != #{userId})a)
+      </if>
+    </update>
+
+    <delete id="delete">
+      delete from user where userId = #{_parameter}
+    </delete>
 </mapper>

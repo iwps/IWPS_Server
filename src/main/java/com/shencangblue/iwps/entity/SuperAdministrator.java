@@ -3,6 +3,7 @@ package com.shencangblue.iwps.entity;
 public class SuperAdministrator {
     private long superAdministratorId;
     private String name;
+    private String superAdministratorAccount;
     private String password;
     private String avatar;
     private String detail;
@@ -45,5 +46,13 @@ public class SuperAdministrator {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public String getSuperAdministratorAccount() {
+        return superAdministratorAccount;
+    }
+
+    public void setSuperAdministratorAccount(String superAdministratorAccount) {
+        this.superAdministratorAccount = superAdministratorAccount;
     }
 }

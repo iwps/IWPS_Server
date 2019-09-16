@@ -6,6 +6,7 @@ package com.shencangblue.iwps.entity;
 public class Lifeguard {
     private long lifeguardId;
     private String name;
+    private String lifeguardAccount;
     private String password;
     private String avatar;
     private String detail;
@@ -66,5 +67,13 @@ public class Lifeguard {
 
     public void setSwimmingPoolId(String swimmingPoolId) {
         this.swimmingPoolId = swimmingPoolId;
+    }
+
+    public String getLifeguardAccount() {
+        return lifeguardAccount;
+    }
+
+    public void setLifeguardAccount(String lifeguardAccount) {
+        this.lifeguardAccount = lifeguardAccount;
     }
 }
