@@ -55,4 +55,108 @@
 <delete id="deleteAdministratorsById">
     DELETE FROM Administrators WHERE administratorId = #{administratorId}
   </delete>
+
+    <select id="validate" resultType="Administrators">
+        select administratorId,name,administratorAccount,password,avatar,swimmingPoolId,detail
+        from administrators ad
+        <where>
+            1=1
+            <if test="administratorAccount != null">
+                and ad.administratorAccount = #{administratorAccount}
+            </if>
+            <if test="name != null">
+                and ad.name = #{name}
+            </if>
+            <if test="password != null">
+                and ad.password = #{password}
+            </if>
+        </where>
+    </select>
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="Administrators">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select administratorId,name,administratorAccount,password,avatar,swimmingPoolId,detail
+        from administrators ad
+        <where>
+            1=1
+            <if test="administratorAccount != null">
+                and ad.administratorAccount = #{administratorAccount}
+            </if>
+            <if test="name != null">
+                and ad.name = #{name}
+            </if>
+            <if test="password != null">
+                and ad.password = #{password}
+            </if>
+        </where>
+        limit #{pageNum},#{limit}
+    </select>
+
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from administrators ad
+        <where>
+            1=1
+            <if test="administratorAccount != null">
+                and ad.administratorAccount = #{administratorAccount}
+            </if>
+            <if test="name != null">
+                and ad.name = #{name}
+            </if>
+            <if test="password != null">
+                and ad.password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into administrators(name,AdministratorAccount,password,avatar,swimmingPoolId,detail)
+        select #{name},#{AdministratorAccount},#{password},#{avatar},#{swimmingPoolId},#{detail}
+        where not exists(select 1 from administrators where  administratorAccount=#{AdministratorAccount})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectById" resultType="Administrators">
+        select administratorAccount,name,administratorAccount,password,avatar,swimmingPoolId,detail
+        from administrators
+        where administratorId = #{_parameter}
+    </select>
+
+
+
+    <update id="update">
+        update administrators
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="AdministratorAccount != null ">
+                AdministratorAccount = #{AdministratorAccount},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="swimmingPoolId != null">
+                swimmingPoolId = #{swimmingPoolId},
+            </if>
+
+            <if test="detail != null">
+                detail = #{detail},
+            </if>
+        </set>
+        where AdministratorId = #{AdministratorId}
+        <if test="administratorAccount != null">
+            and not exists (select 1
+            from(select 1
+            from administrators where administratorAccount =#{administratorAccount} and administratorId != #{administratorId})a)
+        </if>
+    </update>
+
+    <delete id="delete">
+        delete from administrators where administratorId = #{_parameter}
+    </delete>
 </mapper>

@@ -3,5 +3,109 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.LifeguardDao">
+    <select id="validate" resultType="Lifeguard">
+        select lifeguardId,name,lifeguardAccount,password,avatar,swimmingPoolId,phone,detail
+        from lifeguard l
+        <where>
+            1=1
+            <if test="lifeguardAccount != null">
+                and l.lifeguardAccount = #{lifeguardAccount}
+            </if>
+            <if test="name != null">
+                and l.name = #{name}
+            </if>
+            <if test="password != null">
+                and l.password = #{password}
+            </if>
+        </where>
+    </select>
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="Lifeguard">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select lifeguardId,name,lifeguardAccount,password,avatar,swimmingPoolId,phone,detail
+        from lifeguard l
+        <where>
+            1=1
+            <if test="lifeguardAccount != null">
+                and l.lifeguardAccount = #{lifeguardAccount}
+            </if>
+            <if test="name != null">
+                and l.name = #{name}
+            </if>
+            <if test="password != null">
+                and l.password = #{password}
+            </if>
+        </where>
+        limit #{pageNum},#{limit}
+    </select>
 
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from lifeguard l
+        <where>
+            1=1
+            <if test="lifeguardAccount != null">
+                and l.lifeguardAccount = #{lifeguardAccount}
+            </if>
+            <if test="name != null">
+                and l.name = #{name}
+            </if>
+            <if test="password != null">
+                and l.password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into lifeguard(name,lifeguardAccount,password,avatar,swimmingPoolId,phone,detail)
+        select #{name},#{lifeguardAccount},#{password},#{avatar},#{swimmingPoolId},#{phone},#{detail}
+        where not exists(select 1 from lifeguard where  lifeguardAccount=#{lifeguardAccount})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectById" resultType="Lifeguard">
+        select lifeguardId,name,lifeguardAccount,password,avatar,swimmingPoolId,phone,detail
+        from lifeguard
+        where lifeguardId = #{_parameter}
+    </select>
+
+
+
+    <update id="update">
+        update lifeguard
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="lifeguardAccount != null ">
+                lifeguardAccount = #{lifeguardAccount},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="swimmingPoolId != null">
+                swimmingPoolId = #{swimmingPoolId},
+            </if>
+            <if test="phone != null">
+                phone = #{phone},
+            </if>
+            <if test="detail != null">
+                detail = #{detail},
+            </if>
+        </set>
+        where lifeguardId = #{lifeguardId}
+        <if test="lifeguardAccount != null">
+            and not exists (select 1
+            from(select 1
+            from lifeguard where lifeguardAccount =#{lifeguardAccount} and lifeguardId != #{lifeguardId})a)
+        </if>
+    </update>
+
+    <delete id="delete">
+        delete from lifeguard where lifeguardId = #{_parameter}
+    </delete>
 </mapper>

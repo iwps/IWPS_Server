@@ -3,5 +3,104 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.SuperAdministratorDao">
+    <select id="validate" resultType="SuperAdministrator">
+        select superAdministratorId,name,superAdministratorAccount,password,avatar,detail
+        from superadministrator su
+        <where>
+            1=1
+            <if test="superAdministratorAccount != null">
+                and su.superAdministratorAccount = #{superAdministratorAccount}
+            </if>
+            <if test="name != null">
+                and su.name = #{name}
+            </if>
+            <if test="password != null">
+                and su.password = #{password}
+            </if>
+        </where>
+    </select>
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="SuperAdministrator">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select superAdministratorId,name,superAdministratorAccount,password,avatar,detail
+        from superAdministrator su
+        <where>
+            1=1
+            <if test="superAdministratorAccount != null">
+                and su.superAdministratorAccount = #{superAdministratorAccount}
+            </if>
+            <if test="name != null">
+                and su.name = #{name}
+            </if>
+            <if test="password != null">
+                and su.password = #{password}
+            </if>
+        </where>
+        limit #{pageNum},#{limit}
+    </select>
 
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from SuperAdministrator su
+        <where>
+            1=1
+            <if test="superAdministratorAccount != null">
+                and su.superAdministratorAccount = #{superAdministratorAccount}
+            </if>
+            <if test="name != null">
+                and su.name = #{name}
+            </if>
+            <if test="password != null">
+                and su.password = #{password}
+            </if>
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into superAdministrator(name,superAdministratorAccount,password,avatar,detail)
+        select #{name},#{superAdministratorAccount},#{password},#{avatar},#{detail}
+        where not exists(select 1 from superAdministrator where  superAdministratorAccount=#{superAdministratorAccount})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectById" resultType="SuperAdministrator">
+        select superAdministratorId,name,superAdministratorAccount,password,avatar,detail
+        from SuperAdministrator
+        where superAdministratorId = #{_parameter}
+    </select>
+
+
+
+    <update id="update">
+        update superAdministrator
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="superAdministratorAccount != null ">
+                superAdministratorAccount = #{superAdministratorAccount},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar},
+            </if>
+            <if test="detail != null">
+                detail = #{detail},
+            </if>
+        </set>
+        where superAdministratorId = #{superAdministratorId}
+        <if test="superAdministratorAccount != null">
+            and not exists (select 1
+            from(select 1
+            from superAdministrator
+            where superAdministratorAccount =#{superAdministratorAccount} and superAdministratorId != #{superAdministratorId})a)
+        </if>
+    </update>
+
+    <delete id="delete">
+        delete from superAdministrator where superAdministratorId = #{_parameter}
+    </delete>
 </mapper>

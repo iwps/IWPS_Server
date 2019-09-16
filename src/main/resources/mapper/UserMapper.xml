@@ -105,7 +105,9 @@
       </set>
         where userId = #{userId}
       <if test="userAccount != null">
-          and not exists (select 1 from(select 1 from user where user userAccount =#{userAccount} and userId != #{userId})a)
+          and not exists (select 1
+          from(select 1
+          from user where userAccount =#{userAccount} and userId != #{userId})a)
       </if>
     </update>
 

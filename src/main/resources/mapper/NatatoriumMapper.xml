@@ -3,5 +3,100 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.NatatoriumDao">
+    <select id="validate" resultType="Natatorium">
+        select natatoriumId,name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail
+        from natatorium n
+        <where>
+            1=1
+            <if test="natatoriumId != null">
+                and n.natatoriumId = #{natatoriumId}
+            </if>
+            <if test="name != null">
+                and n.name = #{name}
+            </if>
 
+        </where>
+    </select>
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="Natatorium">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select natatoriumId,name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail
+        from natatorium n
+        <where>
+            1=1
+            <if test="natatoriumId != null">
+                and n.natatoruimId = #{natatoriumId}
+            </if>
+            <if test="name != null">
+                and n.name = #{name}
+            </if>
+
+        </where>
+        limit #{pageNum},#{limit}
+    </select>
+
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from natatorium n
+        <where>
+            1=1
+            <if test="natatoriumId != null">
+                and n.natatoriumId = #{natatoriumId}
+            </if>
+            <if test="name != null">
+                and n.name = #{name}
+            </if>
+
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into natatorium(name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail)
+        select #{name},#{waterLevel},#{swimmingPoolId},#{numberOfPools},#{waterTempertaure},#{detail}
+        where not exists(select 1 from natatorium where  natatoriumId=#{natatoriumId})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectById" resultType="natatorium">
+        select natatoriumId,name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail
+        from natatorium
+        where natatoriumId = #{_parameter}
+    </select>
+
+
+
+    <update id="update">
+        update natatorium
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="waterLevel != null ">
+                waterLevel = #{waterLevel},
+            </if>
+            <if test="swimmingPoolId != null">
+                swimmingPoolId = #{swimmingPoolId},
+            </if>
+            <if test="numberOfPools != null">
+                numberOfPools = #{numberOfPools},
+            </if>
+            <if test="waterTempertaure != null">
+                waterTempertaure = #{waterTempertaure},
+            </if>
+            <if test="detail != null">
+                detail = #{detail},
+            </if>
+        </set>
+        where natatoriumId = #{natatoriumId}
+        <if test="natatoriumId != null">
+            and not exists (select 1
+            from(select 1
+            from natatorium where  natatoriumId != #{natatoriumId})a)
+        </if>
+    </update>
+
+    <delete id="delete">
+        delete from natatorium where natatoriumId = #{_parameter}
+    </delete>
 </mapper>

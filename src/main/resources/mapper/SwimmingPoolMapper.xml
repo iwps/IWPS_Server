@@ -3,5 +3,94 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.SwimmingPoolDao">
+    <select id="validate" resultType="SwimmingPool">
+        select swimmingPoolId,name,address,phone,detail
+        from swimmingPool sp
+        <where>
+            1=1
+            <if test="swimmingPoolId != null">
+                and sp.swimmingPoolId = #{swimmingPoolId}
+            </if>
+            <if test="name != null">
+                and sp.name = #{name}
+            </if>
+        </where>
+    </select>
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="swimmingPool">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select swimmingPoolId,name,phone,address,detail
+        from swimmingPool sp
+        <where>
+            1=1
+            <if test="swimmingPoolId != null">
+                and sp.swimmingPoolId = #{swimmingPoolId}
+            </if>
+            <if test="name != null">
+                and sp.name = #{name}
+            </if>
+
+        </where>
+        limit #{pageNum},#{limit}
+    </select>
+
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from swimmingPool sp
+        <where>
+            1=1
+            <if test="swimmingPoolId != null">
+                and sp.swimmingPoolId = #{swimmingPoolId}
+            </if>
+            <if test="name != null">
+                and sp.name = #{name}
+            </if>
+
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into swimmingPool(swimmingPoolId,name,phone,address,detail)
+        select #{swimmingPoolId},#{name},#{phone},#{address},#{detail}
+        where not exists(select 1 from swimmingPool where  swimmingPoolId=#{swimmingPoolId})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectById" resultType="swimmingPool">
+        select swimmingPoolId,name,phone,address,detail
+        from swimmingPool
+        where swimmingPoolId = #{_parameter}
+    </select>
+
+
+
+    <update id="update">
+        update swimmingPool
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="phone != null ">
+                phone = #{phone},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="detail != null">
+                detail = #{detail},
+            </if>
+        </set>
+        where swimmingPoolId = #{swimmingPoolId}
+        <if test="swimmingPoolId != null">
+            and not exists (select 1
+            from(select 1
+            from swimmingPool where  swimmingPoolId != #{swimmingPoolId})a)
+        </if>
+    </update>
+
+    <delete id="delete">
+        delete from swimmingPool where swimmingPoolId = #{_parameter}
+    </delete>
 
 </mapper>
