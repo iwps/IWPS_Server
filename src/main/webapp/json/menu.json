@@ -1,0 +1,76 @@
+{
+  "status": 0,
+  "msg": "ok",
+  "data": [{
+    "id": 1,
+    "name": "数据管理",
+    "icon": "&#xe723;",
+    "url": "",
+    "children": [{
+      "id": 2,
+      "name": "温度记录",
+      "icon": "",
+      "url": "../html/history/history-temprerature.html"
+    }, {
+      "id": 3,
+      "name": "湿度记录",
+      "icon": "",
+      "url": "../html/history/history-humidity.html"
+    }, {
+      "id": 4,
+      "name": "光照记录",
+      "icon": "",
+      "url": "../html/history/history-illumination.html"
+
+    }]
+  },
+    {
+      "id": 31,
+      "name": "实体管理",
+      "icon": "&#xe6b8;",
+      "url": "",
+      "children": [{
+        "id": 32,
+        "name": "用户列表",
+        "icon": "",
+        "url": "../html/table/table-user.html"
+      }, {
+        "id": 33,
+        "name": "驴舍列表",
+        "icon": "",
+        "url": "../html/table/table-home.html"
+      }, {
+        "id": 34,
+        "name": "驴管理",
+        "icon": "&#xe70b;",
+        "url": "../html/table/table-donkey.html"
+      }]
+    },
+    {
+      "id": 8,
+      "name": "驴个体",
+      "icon": "&#xe705;",
+      "url": "",
+      "children": [{
+        "id": 9,
+        "name": "打卡记录",
+        "icon": "",
+        "url": "../html/history/history-donkey.html"
+      }]
+    },
+    {
+      "id": 10,
+      "name": "界面导航",
+      "icon": "&#xe70b;",
+      "url": "",
+      "children": [{
+        "id": 11,
+        "name": "欢迎界面",
+        "icon": "",
+        "url": "../html/welcome.html"
+      }]
+    }
+  ]
+}
+
+

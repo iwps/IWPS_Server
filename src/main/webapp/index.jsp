@@ -8,7 +8,7 @@
         <title>智能游泳馆系统</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="./ico/favicon128.ico">
 
         <link rel="stylesheet" href="./static/css/bootstrap.min.css">
         <link rel="stylesheet" href="./static/css/fontAwesome.css">
@@ -41,7 +41,7 @@
                     <a href="#services">了解详情</a>
                 </div>
                 <div class="primary-button">
-                    <a href="./userService/index.html">立刻登录</a>
+                    <a href="./html/index.html">立刻登录</a>
                 </div>
             </div>
         </div>

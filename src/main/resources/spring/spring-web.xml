@@ -52,6 +52,7 @@
     <mvc:resources location="/html/" mapping="/html/**"/>
     <mvc:resources location="/userService/" mapping="/userService/**"/>
     <mvc:resources location="/layUI/" mapping="/layUI/**"/>
+    <mvc:resources location="/static/layUIS/" mapping="/static/layUIS/**"/>
 
 
     <!-- 4.扫描web相关的bean -->

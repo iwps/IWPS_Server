@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IOT-智能驴舍管理系统后台</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="shortcut icon" href="../ico/favicon128.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../static/layUIS/css/font.css">
+    <link rel="stylesheet" href="../static/layUIS/css/weadmin.css">
+    <link rel="stylesheet" href="../layUI/css/layui.css">
+    <!--<script type="text/javascript" src="./jquery/jquery.js" charset="utf-8"></script>-->
+
+
+</head>
+
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo">
+        <a href="index.html">智能驴舍综合系统</a>
+    </div>
+    <div class="left_open">
+        <!-- <i title="展开左侧栏" class="iconfont">&#xe699;</i> -->
+        <i title="展开左侧栏" class="layui-icon layui-icon-shrink-right"></i>
+
+    </div>
+
+    <!--用户菜单，负责注销-->
+    <ul class="layui-nav right" lay-filter="usermenu">
+
+        <li class="layui-nav-item to-index" id="selfname">
+            <a href="index.html" target="_blank"></a>
+        </li>
+
+        <li class="layui-nav-item">
+            <a href="javascript:"> 用户菜单 </a>
+            <dl class="layui-nav-child">
+                <!-- 二级菜单 -->
+                <!--<dd>-->
+                    <!--<a class="userinfo" name="userinfo" value="userinfo" lay-event="userinfo">个人信息</a>-->
+                <!--</dd>-->
+                <dd>
+                    <a class="logout" name="logout" value="logout" lay-event="logout"> 退  出 </a>
+                </dd>
+            </dl>
+        </li>
+
+
+    </ul>
+
+</div>
+
+<!-- 顶部结束 -->
+<!-- 中部开始 -->
+<!-- 左侧菜单开始 -->
+
+<div class="left-nav">
+    <div id="side-nav"></div>
+</div>
+
+<!-- <div class="x-slide_left"></div> -->
+<!-- 左侧菜单结束 -->
+<!-- 右侧主体开始 -->
+<div class="page-content">
+    <div class="layui-tab tab" lay-filter="wenav_tab" id="WeTabTip" lay-allowclose="true">
+        <ul class="layui-tab-title" id="tabName">
+            <li>欢迎界面</li>
+        </ul>
+        <!-- 插入子界面 -->
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <iframe src='welcome.html' frameborder="0" scrolling="yes" class="weIframe"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content-bg"></div>
+
+
+<!-- 右侧主体结束 -->
+<!-- 中部结束 -->
+<!-- 底部开始 -->
+<div class="footer">
+    <div class="copyright">Copyright ©2019 LvHome v1.0 from 中北大学-大数据学院 16070942</div>
+</div>
+<script type="text/javascript" src="../layUI/layui.js" charset="utf-8"></script>
+<!-- 底部结束 -->
+<script type="text/javascript">
+
+    layui.config({
+        base: '../static/layUIS/js/'
+        , version: '101100'
+    }).extend({ //设定模块别名
+        admin: 'admin'
+        , menu: 'menu'
+    });
+
+    //导入自定义别名
+    layui.use(['jquery', 'admin', 'menu'], function () {
+        layui.$.support.cors = true;
+        var $ = layui.jquery;
+        var admin = layui.admin;
+        var menu = layui.menu;
+        var element = layui.element;
+        $(function () {
+            menu.getMenu('../json/menu.json');
+            var login = JSON.parse(localStorage.getItem("login"));
+            if (login) {
+                if (login === 0) {
+                    window.location.href = './login.html';
+                    return false;
+                } else {
+                    return false;
+                }
+            } else {
+                window.location.href = './login.html';
+                return false;
+            }
+        });
+
+        $(function () {
+            var userAccount = localStorage.getItem("userAccount");
+            $("#selfname").html("欢迎您:"+userAccount);
+        });
+
+        element.on('nav(usermenu)', function(elem){
+            switch (elem[0].name) {
+                case 'userinfo':
+                    layer.msg(elem.text()+"还没写，别慌嘛！");
+                    break;
+                case 'logout':
+                    layer.msg('退出成功！');
+                    localStorage.removeItem("userAccount");
+                    localStorage.setItem("login",0);
+                    window.location.href = './login.html';
+                    break;
+            }
+        });
+
+
+    });
+
+
+
+
+</script>
+</body>
+
+<!--Tab菜单右键弹出菜单-->
+<ul class="rightMenu" id="rightMenu">
+    <li data-type="fresh">刷新</li>
+    <li data-type="current">关闭当前</li>
+    <li data-type="other">关闭其它</li>
+    <li data-type="all">关闭所有</li>
+</ul>
+
+</html>
