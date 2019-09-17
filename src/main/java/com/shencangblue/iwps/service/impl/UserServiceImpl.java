@@ -27,6 +27,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User selectByAccount(String userAccount) {
+        return userDao.selectByAccount(userAccount);
+    }
+
+    @Override
     public UserDto getByIdDto(long userId) {
         UserDto userDto = new UserDto();
         User user = userDao.selectById(userId);

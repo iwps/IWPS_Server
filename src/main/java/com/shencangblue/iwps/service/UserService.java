@@ -23,6 +23,13 @@ public interface UserService {
     User getById(long userId);
 
     /**
+     * 获取指定account的用户
+     * @param userAccount
+     * @return
+     */
+    User selectByAccount(String userAccount);
+
+    /**
      * 获取指定Id的用户
      * @param userId
      * @return

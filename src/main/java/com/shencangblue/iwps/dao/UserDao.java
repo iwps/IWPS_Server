@@ -73,6 +73,14 @@ public interface UserDao {
      */
     User selectById(Long id);
 
+
+    /**
+     * 使用account获取用户
+     * @param userAccount
+     * @return
+     */
+    User  selectByAccount(String userAccount);
+
     /**
      * 修改
      * @param user 用户

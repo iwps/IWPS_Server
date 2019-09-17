@@ -55,12 +55,12 @@
                     <div class="left-text">
                         <h4>智能游泳馆</h4>
                         <div class="line-dec"></div>
-                        <p><a rel="nofollow" href="#">智能游泳馆</a>是一个为游泳馆的游泳池资源管理的。</p>
+                        <p><a rel="nofollow" href="#">智能游泳馆</a>是一个为游泳馆的游泳池资源管理的平台，web部分可为管理员提供高效的管理服务。</p>
                         <ul>
-                            <li>- 看不懂看不懂看不懂 </li>
-                            <li>- 看不懂看不懂看不懂 </li>
-                            <li>- 看不懂看不懂看不懂 </li>
-                            <li>- 看不懂看不懂看不懂 </li>
+                            <li>- 超级管理员对总体数据的控制 </li>
+                            <li>- 普通管理员对其所在游泳馆的控制 </li>
+                            <li>- 用户端查看游泳馆的使用情况 </li>
+                            <li>- 误入深水区，入水危险、水温检测以及报警等功能 </li>
                         </ul>
                         <div class="primary-button">
                             <a href="#portfolio">了解我们的更多信息</a>
@@ -71,30 +71,30 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="service-item">
-                                <h4>经典的现代设计</h4>
+                                <h4>康乃馨</h4>
                                 <div class="line-dec"></div>
-                                <p>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</p>
+                                <p>负责文档的撰写与部分的硬件的协调。</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-item">
-                                <h4>独特的创意</h4>
+                                <h4>李宏辉</h4>
                                 <div class="line-dec"></div>
-                                <p>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试。</p>
+                                <p>负责Android端的开发工作。</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-item">
-                                <h4>有效的团队合作</h4>
+                                <h4>闫烁</h4>
                                 <div class="line-dec"></div>
-                                <p>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试。</p>
+                                <p>负责ZigBee、RFID与传感器的运作和服务器的通信(WIFI)。</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-item">
-                                <h4>全天候快速支持</h4>
+                                <h4>金浩</h4>
                                 <div class="line-dec"></div>
-                                <p>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试.</p>
+                                <p>负责服务器的前端与后端的搭建工作.</p>
                             </div>
                         </div>
                     </div>
