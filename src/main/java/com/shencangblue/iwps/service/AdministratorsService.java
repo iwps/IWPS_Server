@@ -86,4 +86,12 @@ public interface AdministratorsService {
 
     int selectCount();
 
+
+    /**
+     * 通过account查找用户
+     * @param administratorsAccount
+     * @return
+     */
+    Administrators selectByAccount(String administratorsAccount);
+
 }

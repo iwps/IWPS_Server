@@ -118,7 +118,14 @@
 
     <!-- 通过Id来寻找特定单个目标 -->
     <select id="selectById" resultType="Administrators">
-        select administratorAccount,name,administratorAccount,password,avatar,swimmingPoolId,detail
+        select administratorId,administratorAccount,name,administratorAccount,password,avatar,swimmingPoolId,detail
+        from administrators
+        where administratorId = #{_parameter}
+    </select>
+
+    <!-- 通过Account来寻找特定单个目标 -->
+    <select id="selectByAccount" resultType="SAdministrators">
+        select administratorId,administratorAccount,name,administratorAccount,password,avatar,swimmingPoolId,detail
         from administrators
         where administratorId = #{_parameter}
     </select>

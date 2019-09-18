@@ -86,4 +86,5 @@ public interface LifeguardService {
 
     int selectCount();
 
+    Lifeguard selectByAccount(String lifeguardAccount);
 }

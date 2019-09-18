@@ -95,4 +95,9 @@ public class LifeguardServiceImpl implements LifeguardService {
     public int selectCount() {
         return lifeguardDao.count();
     }
+
+    @Override
+    public Lifeguard selectByAccount(String lifeguardAccount) {
+        return lifeguardDao.selectByAccount(lifeguardAccount);
+    }
 }

@@ -70,7 +70,12 @@
         where superAdministratorId = #{_parameter}
     </select>
 
-
+    <!-- 通过Account来寻找特定单个目标 -->
+    <select id="selectByAccount" resultType="SuperAdministrator">
+        select superAdministratorId,name,superAdministratorAccount,password,avatar,detail
+        from superadministrator
+        where superAdministratorAccount = #{_parameter}
+    </select>
 
     <update id="update">
         update superAdministrator

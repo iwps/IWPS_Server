@@ -84,7 +84,7 @@
 
         <!--密码-->
         <div class="layui-form-item">
-            <label for="add_passwprd" class="layui-form-label">
+            <label for="add_password" class="layui-form-label">
                 <span class="we-red">*</span>
                 密码
             </label>
@@ -166,7 +166,7 @@
 
         <!--备注-->
         <div class="layui-form-item">
-            <label for="add_RFIDInfo" class="layui-form-label">
+            <label for="add_detail" class="layui-form-label">
                 备注
             </label>
             <div class="layui-input-inline">
@@ -179,10 +179,10 @@
 
         <!--按钮-->
         <div class="layui-form-item">
-            <label for="add_repass" class="layui-form-label">
+            <label for="addUser" class="layui-form-label">
             </label>
             <button class="layui-btn" lay-filter="addUserSure" lay-submit="">确定</button>
-            <button class="layui-btn layui-btn-normal" lay-filter="addUserCancel">取消</button>
+            <button class="layui-btn layui-btn-normal" lay-filter="addUserCancel" lay-submit="">取消</button>
         </div>
 
     </form>
@@ -197,8 +197,9 @@
             <br/>
         </div>
 
+        <!--用户Id-->
         <div class="layui-form-item" hidden>
-            <label for="edit_useraccount" class="layui-form-label">
+            <label for="edit_userId" class="layui-form-label">
                 <span class="we-red">*</span>用户Id
             </label>
             <div class="layui-input-inline">
@@ -208,39 +209,55 @@
 
         </div>
 
+        <!--用户名-->
         <div class="layui-form-item">
-            <label for="edit_useraccount" class="layui-form-label">
+            <label for="edit_userAccount" class="layui-form-label">
                 <span class="we-red">*</span>账号
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="edit_useraccount" name="useraccount" lay-verify="required" autocomplete="off"
+                <input type="text" id="edit_userAccount" name="userAccount" lay-verify="required" autocomplete="off"
                        class="layui-input" disabled>
             </div>
 
         </div>
 
+        <!--性别-->
         <div class="layui-form-item">
-            <label for="edit_username" class="layui-form-label">
+            <label for="edit_sex" class="layui-form-label">
+                <span class="we-red">*</span>性别
+            </label>
+            <div class="layui-input-block" id="edit_sex">
+                <input type="radio" name="sex" value="男" title="男" checked>
+                <input type="radio" name="sex" value="女" title="女">
+                <!--<input type="radio" name="sex" value="保密" title="保密">-->
+            </div>
+        </div>
+
+        <!--名字-->
+        <div class="layui-form-item">
+            <label for="edit_name" class="layui-form-label">
                 <span class="we-red">*</span>姓名
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="edit_username" name="username" lay-verify="required" autocomplete=""
+                <input type="text" id="edit_name" name="name" lay-verify="required" autocomplete=""
                        class="layui-input" disabled>
             </div>
         </div>
 
-
+        <!--头像-->
         <div class="layui-form-item">
-            <label for="edit_age" class="layui-form-label">
-                <span class="we-red"></span>年龄
+            <label for="edit_avatar" class="layui-form-label">
+                <span class="we-red">*</span>头像链接
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="edit_age" name="age" autocomplete="off" class="layui-input">
+                <input type="text" id="edit_avatar" name="avatar" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
             </div>
-
         </div>
+
+        <!--密码-->
         <div class="layui-form-item">
-            <label for="edit_pass" class="layui-form-label">
+            <label for="edit_password" class="layui-form-label">
                 <span class="we-red">*</span>密码
             </label>
             <div class="layui-input-inline">
@@ -251,9 +268,63 @@
             </div>
         </div>
 
+        <!--水位等级-->
+        <div class="layui-form-item">
+            <label for="edit_swimmingGrade" class="layui-form-label">
+                <span class="we-red">*</span>下水等级
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_swimmingGrade" name="swimmingGrade" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
+        <!--电子邮件-->
+        <div class="layui-form-item">
+            <label for="edit_email" class="layui-form-label">
+                <span class="we-red">*</span>下水等级
+            </label>
+            <div class="layui-input-inline">
+                <input type="email" id="edit_email" name="email" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
+        <!--手机号码-->
+        <div class="layui-form-item">
+            <label for="edit_phone" class="layui-form-label">
+                手机号码
+            </label>
+            <div class="layui-input-inline">
+                <input type="number" id="edit_phone" name="phone" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <!--卡号-->
+        <div class="layui-form-item">
+            <label for="edit_RFIDInfo" class="layui-form-label">
+                卡号
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_RFIDInfo" name="RFIDInfo" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
+        <!--备注-->
+        <div class="layui-form-item">
+            <label for="edit_detail" class="layui-form-label">
+                备注
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_detail" name="detail" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
         <!--按键-->
         <div class="layui-form-item">
-            <label for="edit_user_sure" class="layui-form-label">
+            <label for="editUser" class="layui-form-label">
             </label>
             <button class="layui-btn" lay-filter="editUserSure" lay-submit="">确定</button>
             <button class="layui-btn layui-btn-normal" lay-filter="editUserCancel" lay-submit="">取消</button>
@@ -281,7 +352,6 @@
 
 
 <script>
-
     layui.use(['table', 'jquery', 'layer', 'form'], function () {
         var table = layui.table;
         var $ = layui.jquery;
@@ -333,7 +403,7 @@
                         title: '添加用户',//设置标题
                         area: ['500px', '500px'],//设置宽高
                         closeBtn: 1,//  0不显示   1【默认】 关闭  2
-                        shadeClose: true, //是否点击遮罩关闭
+                        shadeClose: true //是否点击遮罩关闭
                     });
                     break;
                 case 'deleteAll'://删除选中
@@ -392,7 +462,7 @@
                 , "waterPressure": obj.field.waterPressure.toString()
                 , "sex": obj.field.sex.toString()
                 , "swimmingGrade": obj.field.swimmingGrade.toString()
-                , "rfidinfo": obj.field.rfidinfo.toString()
+                , "RFIDInfo": obj.field.RFIDInfo.toString()
             };
             var flag = 0;
             $.ajax({

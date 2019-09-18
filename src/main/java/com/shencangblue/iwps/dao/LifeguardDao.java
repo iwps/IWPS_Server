@@ -88,4 +88,11 @@ public interface LifeguardDao {
     Long delete(Long id);
 
     int count();
+
+    /**
+     * 通过account查找用户
+     * @param lifeguardAccount
+     * @return
+     */
+    Lifeguard selectByAccount(String lifeguardAccount);
 }

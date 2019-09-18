@@ -89,4 +89,13 @@ public interface SuperAdministratorDao {
     Long delete(Long id);
 
     int count();
+    int selectCount();
+
+    /**
+     * 通过account查找用户
+     * @param superAdministratorAccount
+     * @return
+     */
+    SuperAdministrator selectByAccount(String superAdministratorAccount);
+
 }

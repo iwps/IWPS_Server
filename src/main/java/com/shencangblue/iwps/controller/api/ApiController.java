@@ -51,7 +51,7 @@ public class ApiController {
         dto.setLimit(limit);
         dto.setPage(page);
         ResponseObject<List<AdministratorsDto>> responseObject=new ResponseObject<>();
-        responseObject.setCode(100001);
+        responseObject.setCode(0);
         responseObject.setMsg("Administrators");
         responseObject.setData(administratorsService.getList(dto));
         responseObject.setCount(administratorsService.selectCount());
@@ -70,7 +70,7 @@ public class ApiController {
             System.out.println("添加成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(101000);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -87,7 +87,7 @@ public class ApiController {
             System.out.println("删除成功！");
             responseObject.setMsg("delete_success");
             responseObject.setCount(1);
-            responseObject.setCode(100100);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -112,7 +112,7 @@ public class ApiController {
             System.out.println("删除所有成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(count);
-            responseObject.setCode(110100);
+            responseObject.setCode(0);
         }
         return responseObject;
     }
@@ -130,7 +130,7 @@ public class ApiController {
             System.out.println("修改成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(100010);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -150,7 +150,7 @@ public class ApiController {
         dto.setLimit(limit);
         dto.setPage(page);
         ResponseObject<List<UserDto>> responseObject=new ResponseObject<>();
-        responseObject.setCode(100002);
+        responseObject.setCode(0);
         responseObject.setMsg("User");
         responseObject.setData(userService.getList(dto));
         responseObject.setCount(userService.selectCount());
@@ -168,7 +168,7 @@ public class ApiController {
             System.out.println("添加成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(102000);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -184,7 +184,7 @@ public class ApiController {
             System.out.println("删除成功！");
             responseObject.setMsg("delete_success");
             responseObject.setCount(1);
-            responseObject.setCode(100200);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -209,7 +209,7 @@ public class ApiController {
             System.out.println("删除所有成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(count);
-            responseObject.setCode(110200);
+            responseObject.setCode(0);
         }
         return responseObject;
     }
@@ -226,7 +226,7 @@ public class ApiController {
             System.out.println("修改成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(100020);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -247,7 +247,7 @@ public class ApiController {
         dto.setLimit(limit);
         dto.setPage(page);
         ResponseObject<List<SuperAdministratorDto>> responseObject=new ResponseObject<>();
-        responseObject.setCode(100003);
+        responseObject.setCode(0);
         responseObject.setMsg("SuperAdministrator");
         responseObject.setData(superAdministratorService.getList(dto));
         responseObject.setCount(superAdministratorService.selectCount());
@@ -266,7 +266,7 @@ public class ApiController {
             System.out.println("添加成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(103000);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -283,7 +283,7 @@ public class ApiController {
             System.out.println("删除成功！");
             responseObject.setMsg("delete_success");
             responseObject.setCount(1);
-            responseObject.setCode(100300);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -308,7 +308,7 @@ public class ApiController {
             System.out.println("删除所有成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(count);
-            responseObject.setCode(110300);
+            responseObject.setCode(0);
         }
         return responseObject;
     }
@@ -326,7 +326,7 @@ public class ApiController {
             System.out.println("修改成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(100030);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -345,7 +345,7 @@ public class ApiController {
         dto.setLimit(limit);
         dto.setPage(page);
         ResponseObject<List<SwimmingPoolDto>> responseObject=new ResponseObject<>();
-        responseObject.setCode(100005);
+        responseObject.setCode(0);
         responseObject.setMsg("SwimmingPool");
         responseObject.setData(swimmingPoolService.getList(dto));
         responseObject.setCount(swimmingPoolService.selectCount());
@@ -363,7 +363,7 @@ public class ApiController {
             System.out.println("添加成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(105000);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -380,7 +380,7 @@ public class ApiController {
             System.out.println("删除成功！");
             responseObject.setMsg("delete_success");
             responseObject.setCount(1);
-            responseObject.setCode(100500);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -405,7 +405,7 @@ public class ApiController {
             System.out.println("删除所有成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(count);
-            responseObject.setCode(110500);
+            responseObject.setCode(0);
         }
         return responseObject;
     }
@@ -423,7 +423,7 @@ public class ApiController {
             System.out.println("修改成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(100050);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -442,7 +442,7 @@ public class ApiController {
         dto.setLimit(limit);
         dto.setPage(page);
         ResponseObject<List<LifeguardDto>> responseObject=new ResponseObject<>();
-        responseObject.setCode(100004);
+        responseObject.setCode(0);
         responseObject.setMsg("Lifeguard");
         responseObject.setData(lifeguardService.getList(dto));
         responseObject.setCount(lifeguardService.selectCount());
@@ -460,7 +460,7 @@ public class ApiController {
             System.out.println("添加成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(104000);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -477,7 +477,7 @@ public class ApiController {
             System.out.println("删除成功！");
             responseObject.setMsg("delete_success");
             responseObject.setCount(1);
-            responseObject.setCode(100400);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -502,7 +502,7 @@ public class ApiController {
             System.out.println("删除所有成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(count);
-            responseObject.setCode(110400);
+            responseObject.setCode(0);
         }
         return responseObject;
     }
@@ -520,7 +520,7 @@ public class ApiController {
             System.out.println("修改成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(100040);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -541,7 +541,7 @@ public class ApiController {
         dto.setLimit(limit);
         dto.setPage(page);
         ResponseObject<List<NatatoriumDto>> responseObject=new ResponseObject<>();
-        responseObject.setCode(100006);
+        responseObject.setCode(0);
         responseObject.setMsg("Natatorium");
         responseObject.setData(natatoriumService.getList(dto));
         responseObject.setCount(natatoriumService.selectCount());
@@ -559,7 +559,7 @@ public class ApiController {
             System.out.println("添加成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(105000);
+            responseObject.setCode(0);
         };
         return responseObject;
     }
@@ -576,7 +576,7 @@ public class ApiController {
             System.out.println("删除成功！");
             responseObject.setMsg("delete_success");
             responseObject.setCount(1);
-            responseObject.setCode(100600);
+            responseObject.setCode(0);
         }
         return responseObject;
     }
@@ -601,7 +601,7 @@ public class ApiController {
             System.out.println("删除所有成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(count);
-            responseObject.setCode(110600);
+            responseObject.setCode(0);
         }
         return responseObject;
     }
@@ -619,7 +619,7 @@ public class ApiController {
             System.out.println("修改成功！");
             responseObject.setMsg("OK");
             responseObject.setCount(1);
-            responseObject.setCode(100060);
+            responseObject.setCode(0);
         };
         return responseObject;
     }

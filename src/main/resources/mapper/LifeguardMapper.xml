@@ -70,7 +70,12 @@
         where lifeguardId = #{_parameter}
     </select>
 
-
+    <!-- 通过account来寻找特定单个目标 -->
+    <select id="selectById" resultType="Lifeguard">
+        select lifeguardId,name,lifeguardAccount,password,avatar,swimmingPoolId,phone,detail
+        from lifeguard
+        where lifeguardAccount = #{_parameter}
+    </select>
 
     <update id="update">
         update lifeguard

@@ -93,4 +93,10 @@ public class SuperAdministratorServiceImpl implements SuperAdministratorService 
     @Override
     public int selectCount() {
         return superAdministratorDao.count();
-    }}
+    }
+
+    @Override
+    public SuperAdministrator selectByAccount(String superAdministratorAccount) {
+        return superAdministratorDao.selectByAccount(superAdministratorAccount);
+    }
+}

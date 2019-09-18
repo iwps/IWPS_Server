@@ -95,4 +95,9 @@ public class AdministratorsServiceImpl implements AdministratorsService {
     public int selectCount() {
         return administratorsDao.count();
     }
+
+    @Override
+    public Administrators selectByAccount(String administratorsAccount) {
+        return administratorsDao.selectByAccount(administratorsAccount);
+    }
 }
