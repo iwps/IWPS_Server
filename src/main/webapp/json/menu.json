@@ -12,7 +12,7 @@
           "id": 2,
           "name": "分属管理员管理",
           "icon": "",
-          "url": "../html/history/history-temprerature.html"
+          "url": "../html/modelAdministrator.html"
         },
         {
           "id": 3,
@@ -36,7 +36,7 @@
           "id": 6,
           "name": "用户管理",
           "icon": "",
-          "url": "../html/history/history-illumination.html"
+          "url": "../html/modelUser.html"
         }
       ]
     },

@@ -23,11 +23,14 @@
         from swimmingPool sp
         <where>
             1=1
-            <if test="swimmingPoolId != null">
-                and sp.swimmingPoolId = #{swimmingPoolId}
+            <if test="phone != null">
+                and sp.phone = #{phone}
             </if>
             <if test="name != null">
                 and sp.name = #{name}
+            </if>
+            <if test="name != null">
+                and sp.address = #{address}
             </if>
 
         </where>

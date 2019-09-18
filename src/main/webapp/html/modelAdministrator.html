@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>用户列表</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="stylesheet" href="../static/layUIS/css/font.css" />
+    <link rel="stylesheet" href="../static/layUIS/css/weadmin.css" />
+    <link rel="stylesheet" href="../layUI/css/layui.css">
+
+</head>
+
+<body>
+
+
+<table id="userTable" lay-filter="userTable" ></table>
+
+<!--添加表-->
+<div id="addUser" style="display: none;">
+    <form class="layui-form" method="post">
+        <div>
+            <!--用空格占位，显得美观-->
+            <br/>
+            <br/>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="add_useraccount" class="layui-form-label">
+                <span class="we-red">*</span>
+                用户账号
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_useraccount" name="useraccount" lay-verify="required|useraccount" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                大于5个字符
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="add_sex" class="layui-form-label">性别</label>
+            <div class="layui-input-block" id="add_sex">
+                <input type="radio" name="sex" value="男" title="男" checked>
+                <input type="radio" name="sex" value="女" title="女">
+                <!--<input type="radio" name="sex" value="保密" title="保密">-->
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="add_username" class="layui-form-label">
+                <span class="we-red">*</span>
+                用户姓名
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_username" name="username" lay-verify="required|username" autocomplete="" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="add_age" class="layui-form-label">
+                <span class="we-red">*</span>
+                年龄
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_age" name="age" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <label for="add_passwprd" class="layui-form-label">
+                <span class="we-red">*</span>
+                密码
+            </label>
+            <div class="layui-input-inline">
+                <input type="password" id="add_password" name="password" lay-verify="required|password" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                6到16个字符
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label for="add_repass" class="layui-form-label">
+                <span class="we-red">*</span>
+                确认密码
+            </label>
+
+            <div class="layui-input-inline">
+                <input type="password" id="add_repass" name="repass" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!--按钮-->
+        <div class="layui-form-item">
+            <label for="add_repass" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="addUserSure" lay-submit="">确定</button>
+            <button class="layui-btn layui-btn-normal" lay-filter="addUserCancel" >取消</button>
+        </div>
+
+    </form>
+</div>
+
+<!--编辑表-->
+<div id="editUser" style="display: none;">
+    <form class="layui-form">
+        <div>
+            <!--用空格占位，显得美观-->
+            <br/>
+            <br/>
+        </div>
+
+        <div class="layui-form-item" hidden>
+            <label for="edit_useraccount" class="layui-form-label">
+                <span class="we-red">*</span>用户Id
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_userId" name="userId" lay-verify="required" autocomplete="off" class="layui-input" disabled>
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <label for="edit_useraccount" class="layui-form-label">
+                <span class="we-red">*</span>账号
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_useraccount" name="useraccount" lay-verify="required" autocomplete="off" class="layui-input" disabled>
+            </div>
+
+        </div>
+
+        <div class="layui-form-item">
+            <label for="edit_username" class="layui-form-label">
+                <span class="we-red">*</span>姓名
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_username" name="username" lay-verify="required" autocomplete="" class="layui-input" disabled>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label for="edit_age" class="layui-form-label">
+                <span class="we-red"></span>年龄
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_age" name="age" autocomplete="off" class="layui-input">
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <label for="edit_pass" class="layui-form-label">
+                <span class="we-red">*</span>密码
+            </label>
+            <div class="layui-input-inline">
+                <input type="password" id="edit_password" name="password" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+                6到16个字符
+            </div>
+        </div>
+
+        <!--按键-->
+        <div class="layui-form-item">
+            <label for="edit_user_sure" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="editUserSure" lay-submit="">确定</button>
+            <button class="layui-btn layui-btn-normal" lay-filter="editUserCancel" lay-submit="">取消</button>
+            <!--<input type="hidden" name="dataId" id="dataId" value="" />-->
+        </div>
+    </form>
+</div>
+
+
+
+<!--javaScript开始-->
+<script src="../layUI/layui.js" charset="utf-8"></script>
+<script src="../static/layUIS/js/admin.js" charset="utf-8"></script>
+<!--<script src="../../static/js/element-opt.js" charset="utf-8"></script>-->
+<script type="text/html" id="toolbaruserTable">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-normal" lay-event="add" >添加用户</button>
+        <button class="layui-btn " lay-event="deleteAll">批量删除</button>
+    </div>
+</script>
+
+<script type="text/html" id="baruserTable">
+    <a class="layui-btn layui-btn-sm" lay-event="edit" >编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete" >删除</a>
+</script>
+
+
+<script>
+
+    layui.use(['table','jquery','layer','form'], function(){
+        var table = layui.table;
+        var $=layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+
+        //用户表实例
+        table.render({
+            elem: '#userTable'
+            ,id: 'idTest'//选中参数
+            ,toolbar: '#toolbaruserTable'
+            ,title:'用户表'
+            ,text: {
+                none: '没有更多的用户数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
+            }
+            ,url: '../../api/listAdmin' //数据接口
+            ,page: true //开启分页
+            ,limit: 10
+            ,loading:true
+            ,limits : [10,15,20,25]
+            ,cols: [[ //表头
+                {checkbox: true, fixed: 'left'}
+                ,{field: 'administratorId', title: 'ID', sort: true, align:'center'}
+                ,{field: 'administratorAccount', title: '账号', align:'center'}
+                ,{field: 'name', title: '姓名', sort: true, align:'center'}
+                ,{field: 'password', title: '密码', align:'center'}
+                ,{field: 'avatar', title: '年龄', sort: true, align:'center'}
+                ,{field: 'swimmingPoolId', title: '性别', align:'center'}
+                ,{field: 'detail', title: '年龄', sort: true, align:'center'}
+                ,{title: '操作', toolbar: '#baruserTable', align:'center'}
+            ]]
+        });
+
+        //添加用户和批量删除用户
+        table.on('toolbar(userTable)',function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'add':
+                    layer.open({
+                        fix: false, //不固定
+                        maxmin: true,
+                        shade: 0.4,
+                        type:1,
+                        content: $('#addUser'),//设置内容
+                        title:'添加用户',//设置标题
+                        area: ['500px', '500px'],//设置宽高
+                        closeBtn: 1,//  0不显示   1【默认】 关闭  2
+                        shadeClose:true, //是否点击遮罩关闭
+                    });
+                    break;
+                case 'deleteAll'://删除选中
+                    var data = checkStatus.data;
+                    var idList=[];
+                    var flag=0;
+                    for(var i in data){
+                        idList.push(data[i].userId);
+                    }
+                    // console.log(idList.join(","));
+                    layer.confirm('确认要删除吗？' +idList, function(index) {
+                        $.ajax({
+                            url: "../../api/deleteAllUser/",
+                            type: 'GET',
+                            async: false, //使用同步的方式,true为异步方式
+                            data:{data:idList.join(",")},
+                            dataType:'JSON',
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (data){
+                                flag=1;
+                            },
+                            error:function(jqXHR,textStatus,errorThrown) {
+                                console.log(jqXHR);
+                                console.log(textStatus);
+                                console.log(errorThrown);
+                            }
+                        });
+                        if(flag==1){
+                            //捉到所有被选中的，发异步进行删除
+                            layer.close(layer.index);
+                            window.parent.location.reload();
+                            layer.msg('删除选中成功', {
+                                icon: 1
+                            });
+                            // $(".layui-form-checked").not('.header').parents('tr').remove();
+                        }else{
+                            layer.msg('删除选中失败', {
+                                icon: 1
+                            });
+                        }
+                    });
+                    break;
+            }
+        });
+
+        form.on('submit(addUserSure)', function(obj){
+            //验证后发送
+            var data={"useraccount":obj.field.useraccount.toString()
+                , "username":obj.field.username.toString()
+                , "password":obj.field.password.toString()
+                , "sex":obj.field.sex.toString()
+                , "age":obj.field.age};
+
+            var flag=0;
+            $.ajax({
+                url: "../../api/addUser",
+                type: 'POST',
+                async: false, //使用同步的方式,true为异步方式
+                data:JSON.stringify(data),
+                dataType:'JSON',
+                contentType: 'application/json;charset=UTF-8',
+                success: function (data){
+                    // console.log(data);
+                    flag=1;
+                },
+                error:function(jqXHR,textStatus,errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+            layer.msg('添加成功', {
+                icon: 1
+            });
+            layer.close(layer.index);
+            window.parent.location.reload();
+            return false;
+        });
+
+        //编辑用户和删除用户
+        table.on('tool(userTable)',function (obj) {
+            switch (obj.event) {
+                case 'edit':
+                    layer.open({
+                        fix: false, //不固定
+                        maxmin: true,
+                        shade: 0.4,
+                        type:1,
+                        content: $('#editUser'),//设置内容
+                        title:'编辑用户',//设置标题
+                        area: ['500px', '500px'],//设置宽高
+                        closeBtn: 1,//  0不显示   1【默认】 关闭  2
+                        shadeClose:true, //是否点击遮罩关闭
+                        success:function(layero, index){
+                            var body = layui.layer.getChildFrame('body', index);
+                            // console.log(obj.field);
+                            if(obj){
+                                // 取到弹出层里的元素，并把编辑的内容放进去
+                                $("#edit_userId").val(obj.data.userId);  //将选中的数据的id传到编辑页面的隐藏域，便于根据ID修改数据
+                                $("#edit_useraccount").val(obj.data.useraccount);  //密码
+                                $("#edit_password").val(obj.data.password);  //登录时间
+                                $("#edit_username").val(obj.data.username);  //登录名
+                                $("#edit_age").val(obj.data.age);  //登录名
+                                // 记得重新渲染表单
+                                form.render();
+                            }
+                        },
+                    });
+                    break;
+                case 'delete':
+                    var flag=0;
+                    layer.confirm('确认要删除吗？', function(index) {
+                        $.ajax({
+                            url: "../../api/deleteUser/"+obj.data.userId,
+                            type: 'GET',
+                            async: false, //使用同步的方式,true为异步方式
+                            // data:JSON.stringify(data),
+                            dataType:'JSON',
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (data){
+                                flag=1;
+                            },
+                            error:function(jqXHR,textStatus,errorThrown) {
+                                console.log(jqXHR);
+                                console.log(textStatus);
+                                console.log(errorThrown);
+                            }
+                        });
+                        if(flag==1){
+                            obj.del(); //删除对应行（tr）的DOM结构
+                            layer.close(index);
+                            layer.msg('已删除!', {
+                                icon: 1,
+                                time: 1000
+                            });
+                        }else{
+                            layer.msg('删除失败!', {
+                                icon: 2,
+                                time: 1000
+                            });
+                        }
+                    });
+                    break;
+            }
+        });
+
+        form.on("submit(editUserSure)",function (obj) {
+            var flag=0;
+            var data={"userId":obj.field.userId.toString()
+                , "useraccount":obj.field.useraccount.toString()
+                , "username":obj.field.username.toString()
+                , "password":obj.field.password.toString()
+                , "age":obj.field.age};
+            $.ajax({
+                url: "../../api/editUser",
+                type: 'POST',
+                async: false, //使用同步的方式,true为异步方式
+                data:JSON.stringify(data),
+                dataType:'JSON',
+                contentType: 'application/json;charset=UTF-8',
+                success: function (data){
+                    flag=1;
+                },
+                error:function(jqXHR,textStatus,errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+            if(flag==1){
+                layer.msg('修改成功!', {
+                    icon: 1,
+                    time: 1000
+                });
+                layer.close(layer.index);
+                window.parent.location.reload();
+            }else{
+                layer.msg('修改失败!', {
+                    icon: 2,
+                    time: 1000
+                });
+            }
+            return false;
+        });
+    });
+
+
+
+</script>
+
+<!--需要引入 layui.use(['jquery'])用法，之后的函数实现全部在单页实现，再转到js文件上-->
+</body>
+
+</html>
