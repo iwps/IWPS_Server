@@ -40,7 +40,7 @@
     <!-- 3.配置jsp 显示ViewResolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".jsp" />
 
     </bean>
@@ -53,7 +53,8 @@
     <mvc:resources location="/userService/" mapping="/userService/**"/>
     <mvc:resources location="/layUI/" mapping="/layUI/**"/>
     <mvc:resources location="/static/layUIS/" mapping="/static/layUIS/**"/>
-
+    <mvc:resources location="/static/error/" mapping="/static/error/**"/>
+    <mvc:resources location="/WEB-INF/views/" mapping="/WEB-INF/views/**"/>
 
     <!-- 4.扫描web相关的bean -->
     <context:component-scan base-package="com.shencangblue.iwps.controller" />
