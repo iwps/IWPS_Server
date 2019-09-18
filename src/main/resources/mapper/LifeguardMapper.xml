@@ -71,7 +71,7 @@
     </select>
 
     <!-- 通过account来寻找特定单个目标 -->
-    <select id="selectById" resultType="Lifeguard">
+    <select id="selectByAccount" resultType="Lifeguard">
         select lifeguardId,name,lifeguardAccount,password,avatar,swimmingPoolId,phone,detail
         from lifeguard
         where lifeguardAccount = #{_parameter}
