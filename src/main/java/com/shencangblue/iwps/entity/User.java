@@ -15,6 +15,7 @@ public class User {
     private String waterPressure;
     private String sex;
     private String swimmingGrade;
+    private String RFIDInfo;
 
 
     public String getWaterPressure() {
@@ -103,5 +104,13 @@ public class User {
 
     public void setSwimmingGrade(String swimmingGrade) {
         this.swimmingGrade = swimmingGrade;
+    }
+
+    public String getRFIDInfo() {
+        return RFIDInfo;
+    }
+
+    public void setRFIDInfo(String RFIDInfo) {
+        this.RFIDInfo = RFIDInfo;
     }
 }

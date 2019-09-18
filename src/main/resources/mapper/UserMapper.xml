@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.UserDao">
     <select id="validate" resultType="User">
-        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail,RFIDInfo
         from user u
         <where>
             1=1
@@ -22,7 +22,7 @@
     <!-- 列出所有的列表 -->
     <select id="select" resultType="User">
         <bind name="pageNum" value="(page-1)*limit"/>
-        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail,RFIDInfo
         from user u
         <where>
             1=1
@@ -58,21 +58,21 @@
 
     <!-- 插入操作 -->
     <insert id="insert">
-        insert into user(name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail)
-        select #{name},#{userAccount},#{password},#{avatar},#{swimmingGrade},#{email},#{phone},#{sex},#{waterPressure},#{detail}
+        insert into user(name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail,RFIDInfo)
+        select #{name},#{userAccount},#{password},#{avatar},#{swimmingGrade},#{email},#{phone},#{sex},#{waterPressure},#{detail},#{RFIDInfo}
         where not exists(select 1 from user where  userAccount=#{userAccount})
     </insert>
 
     <!-- 通过Id来寻找特定单个目标 -->
     <select id="selectById" resultType="User">
-        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail,RFIDInfo
         from user
         where userId = #{_parameter}
     </select>
 
     <!-- 通过Account来寻找特定单个目标 -->
     <select id="selectByAccount" resultType="User">
-        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,waterPressure,detail,RFIDInfo
         from user
         where userAccount = #{_parameter}
     </select>
@@ -108,6 +108,9 @@
         <if test="detail != null">
             detail = #{detail},
         </if>
+          <if test="RFIDInfo != null">
+              RFIDInfo = #{RFIDInfo},
+          </if>
       </set>
         where userId = #{userId}
       <if test="userAccount != null">
