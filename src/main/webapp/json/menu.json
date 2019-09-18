@@ -18,25 +18,25 @@
           "id": 3,
           "name": "分属游泳馆救生员管理",
           "icon": "",
-          "url": "../html/history/history-humidity.html"
+          "url": "../html/modelLifeguard.html"
         },
         {
           "id": 4,
-          "name": "游泳馆管理",
-          "icon": "",
-          "url": "../html/history/history-humidity.html"
-        },
-        {
-          "id": 5,
-          "name": "所属游泳池管理",
-          "icon": "",
-          "url": "../html/history/history-humidity.html"
-        },
-        {
-          "id": 6,
           "name": "用户管理",
           "icon": "",
           "url": "../html/modelUser.html"
+        },
+        {
+          "id": 5,
+          "name": "游泳馆管理",
+          "icon": "",
+          "url": "../html/modelSwimmingPool.html"
+        },
+        {
+          "id": 6,
+          "name": "游泳池管理",
+          "icon": "",
+          "url": "../html/modelNatatorium.html"
         }
       ]
     },
