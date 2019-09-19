@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>管理员列表</title>
+    <title>救生员列表</title>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />-->
@@ -18,10 +18,10 @@
 <body>
 
 
-<table id="administrators" lay-filter="administrators"></table>
+<table id="lifeguard" lay-filter="lifeguard"></table>
 
 <!--添加表-->
-<div id="addAdministrator" style="display: none;">
+<div id="addLifeguard" style="display: none;">
     <form class="layui-form" method="post">
         <div>
             <!--用空格占位，显得美观-->
@@ -29,15 +29,15 @@
             <br/>
         </div>
 
-        <!--管理员账号-->
+        <!--救生员账号-->
         <div class="layui-form-item">
-            <label for="add_administratorAccount" class="layui-form-label">
+            <label for="add_lifeguardAccount" class="layui-form-label">
                 <span class="we-red">*</span>
-                管理员账号
+                救生员账号
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="add_administratorAccount" name="administratorAccount"
-                       lay-verify="required|administratorAccount" autocomplete="off" class="layui-input">
+                <input type="text" id="add_lifeguardAccount" name="lifeguardAccount"
+                       lay-verify="required|lifeguardAccount" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-mid layui-word-aux">
                 大于5个字符
@@ -45,7 +45,7 @@
         </div>
 
 
-        <!--管理员姓名-->
+        <!--救生员姓名-->
         <div class="layui-form-item">
             <label for="add_name" class="layui-form-label">
                 <span class="we-red">*</span>
@@ -58,8 +58,6 @@
             <div class="layui-form-mid layui-word-aux">
             </div>
         </div>
-
-
 
         <!--手机号码-->
         <div class="layui-form-item">
@@ -74,7 +72,6 @@
                 请输入11位手机号码
             </div>
         </div>
-
 
         <!--头像-->
         <div class="layui-form-item">
@@ -92,6 +89,15 @@
 
         </div>
 
+        <!--所属游泳馆-->
+        <div class="layui-form-item">
+            <label for="add_swimmingPoolId" class="layui-form-label">
+                <span class="we-red"></span>所属游泳馆
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_swimmingPoolId" name="swimmingPoolId" autocomplete="off" class="layui-input">
+            </div>
+        </div>
 
         <!--备注-->
         <div class="layui-form-item">
@@ -121,7 +127,6 @@
             </div>
         </div>
 
-
         <!--确认密码-->
         <div class="layui-form-item">
             <label for="add_repass" class="layui-form-label">
@@ -140,15 +145,15 @@
         <div class="layui-form-item">
             <label for="add_repass" class="layui-form-label">
             </label>
-            <button class="layui-btn" lay-filter="addUserSure" lay-submit="">确定</button>
-            <button class="layui-btn layui-btn-normal" lay-filter="addUserCancel">取消</button>
+            <button class="layui-btn" lay-filter="addLifeguardSure" lay-submit="">确定</button>
+            <button class="layui-btn layui-btn-normal" lay-filter="addLifeguardCancel">取消</button>
         </div>
 
     </form>
 </div>
 
 <!--编辑表-->
-<div id="editUser" style="display: none;">
+<div id="editLifeguard" style="display: none;">
     <form class="layui-form">
         <div>
             <!--用空格占位，显得美观-->
@@ -157,60 +162,88 @@
         </div>
 
         <div class="layui-form-item" hidden>
-            <label for="edit_useraccount" class="layui-form-label">
-                <span class="we-red">*</span>用户Id
+            <label for="edit_lifeguardId" class="layui-form-label">
+                <span class="we-red">*</span>救生员Id
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="edit_userId" name="userId" lay-verify="required" autocomplete="off"
+                <input type="text" id="edit_lifeguardId" name="lifeguardId" lay-verify="required"
+                       autocomplete="off"
                        class="layui-input" disabled>
             </div>
 
         </div>
-        <!--管理员账号-->
-
-        <!--管理员姓名-->
-
-        <!--手机号码-->
-
-        <!--头像-->
-
-        <!--备注-->
-
-        <!--密码-->
-
-        <!--确认密码-->
-
+        <!--救生员账号-->
         <div class="layui-form-item">
-            <label for="edit_useraccount" class="layui-form-label">
+            <label for="edit_lifeguardAccount" class="layui-form-label">
                 <span class="we-red">*</span>账号
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="edit_useraccount" name="useraccount" lay-verify="required" autocomplete="off"
+                <input type="text" id="edit_lifeguardAccount" name="lifeguardAccount" lay-verify="required"
+                       autocomplete="off"
                        class="layui-input" disabled>
             </div>
 
         </div>
 
+        <!--救生员姓名-->
         <div class="layui-form-item">
-            <label for="edit_username" class="layui-form-label">
+            <label for="edit_name" class="layui-form-label">
                 <span class="we-red">*</span>姓名
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="edit_username" name="username" lay-verify="required" autocomplete=""
+                <input type="text" id="edit_name" name="name" lay-verify="required" autocomplete=""
                        class="layui-input" disabled>
             </div>
         </div>
 
-
+        <!--手机号码-->
         <div class="layui-form-item">
-            <label for="edit_age" class="layui-form-label">
-                <span class="we-red"></span>年龄
+            <label for="add_phone" class="layui-form-label">
+                手机号码
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="edit_age" name="age" autocomplete="off" class="layui-input">
+                <input type="number" id="edit_phone" name="phone" lay-verify="required|phone"
+                       autocomplete="off" class="layui-input">
             </div>
-
+            <div class="layui-form-mid layui-word-aux">
+                请输入11位手机号码
+            </div>
         </div>
+
+        <!--头像-->
+        <div class="layui-form-item">
+            <label for="edit_avatar" class="layui-form-label">
+                <span class="we-red">*</span>头像链接
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_avatar" name="avatar" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
+        <!--所属游泳馆-->
+        <div class="layui-form-item">
+            <label for="edit_swimmingPoolId" class="layui-form-label">
+                <span class="we-red"></span>所属游泳馆
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_swimmingPoolId" name="swimmingPoolId" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+
+        <!--备注-->
+        <div class="layui-form-item">
+            <label for="edit_detail" class="layui-form-label">
+                备注
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_detail" name="detail" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
+        <!--密码-->
         <div class="layui-form-item">
             <label for="edit_password" class="layui-form-label">
                 <span class="we-red">*</span>密码
@@ -225,10 +258,10 @@
 
         <!--按键-->
         <div class="layui-form-item">
-            <label for="edit_user_sure" class="layui-form-label">
+            <label for="edit_lifeguard_sure" class="layui-form-label">
             </label>
-            <button class="layui-btn" lay-filter="editUserSure" lay-submit="">确定</button>
-            <button class="layui-btn layui-btn-normal" lay-filter="editUserCancel" lay-submit="">取消</button>
+            <button class="layui-btn" lay-filter="editLifeguardSure" lay-submit="">确定</button>
+            <button class="layui-btn layui-btn-normal" lay-filter="editLifeguardCancel" lay-submit="">取消</button>
             <!--<input type="hidden" name="dataId" id="dataId" value="" />-->
         </div>
     </form>
@@ -239,14 +272,14 @@
 <script src="../layUI/layui.js" charset="utf-8"></script>
 <script src="../static/layUIS/js/admin.js" charset="utf-8"></script>
 <!--<script src="../../static/js/element-opt.js" charset="utf-8"></script>-->
-<script type="text/html" id="toolbarAdministrators">
+<script type="text/html" id="toolbarLifeguard">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-normal" lay-event="add">添加用户</button>
+        <button class="layui-btn layui-btn-normal" lay-event="add">添加救生员</button>
         <button class="layui-btn " lay-event="deleteAll">批量删除</button>
     </div>
 </script>
 
-<script type="text/html" id="barAdministrators">
+<script type="text/html" id="barLifeguard">
     <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete">删除</a>
 </script>
@@ -262,33 +295,34 @@
 
         //用户表实例
         table.render({
-            elem: '#administrators'
+            elem: '#lifeguard'
             , id: 'idTest'//选中参数
-            , toolbar: '#toolbarAdministrators'
-            , title: '用户表'
+            , toolbar: '#toolbarLifeguard'
+            , title: '救生员表'
             , text: {
-                none: '没有更多的用户数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
+                none: '没有更多的救生员数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
             }
-            , url: '../../api/listAdmin' //数据接口
+            , url: '../../api/listLifeguard' //数据接口
             , page: true //开启分页
             , limit: 10
             , loading: true
             , limits: [10, 15, 20, 25]
             , cols: [[ //表头
                 {checkbox: true, fixed: 'left'}
-                , {field: 'administratorId', title: 'ID', sort: true, align: 'center'}
-                , {field: 'administratorAccount', title: '账号', align: 'center'}
+                , {field: 'lifeguardId', title: 'ID', sort: true, align: 'center'}
+                , {field: 'lifeguardAccount', title: '账号', align: 'center'}
                 , {field: 'name', title: '姓名', sort: true, align: 'center'}
                 , {field: 'password', title: '密码', align: 'center'}
                 , {field: 'avatar', title: '头像', sort: true, align: 'center'}
                 , {field: 'swimmingPoolId', title: '所属游泳馆ID', align: 'center'}
                 , {field: 'detail', title: '备注', sort: true, align: 'center'}
-                , {title: '操作', toolbar: '#barAdministrators', align: 'center'}
+                , {field: 'phone', title: '手机号码', sort: true,align:'center'}
+                , {title: '操作', toolbar: '#barLifeguard', align: 'center'}
             ]]
         });
 
         //添加用户和批量删除用户
-        table.on('toolbar(administrators)', function (obj) {
+        table.on('toolbar(lifeguard)', function (obj) {
             var checkStatus = table.checkStatus(obj.config.id);
             switch (obj.event) {
                 case 'add':
@@ -297,11 +331,11 @@
                         maxmin: true,
                         shade: 0.4,
                         type: 1,
-                        content: $('#addUser'),//设置内容
-                        title: '添加用户',//设置标题
+                        content: $('#addLifeguard'),//设置内容
+                        title: '添加救生员',//设置标题
                         area: ['500px', '500px'],//设置宽高
                         closeBtn: 1,//  0不显示   1【默认】 关闭  2
-                        shadeClose: true, //是否点击遮罩关闭
+                        shadeClose: true //是否点击遮罩关闭
                     });
                     break;
                 case 'deleteAll'://删除选中
@@ -309,12 +343,12 @@
                     var idList = [];
                     var flag = 0;
                     for (var i in data) {
-                        idList.push(data[i].userId);
+                        idList.push(data[i].lifeguardId);
                     }
                     // console.log(idList.join(","));
                     layer.confirm('确认要删除吗？' + idList, function (index) {
                         $.ajax({
-                            url: "../../api/deleteAllUser/",
+                            url: "../../api/deleteAllLifeguard/",
                             type: 'GET',
                             async: false, //使用同步的方式,true为异步方式
                             data: {data: idList.join(",")},
@@ -329,7 +363,7 @@
                                 console.log(errorThrown);
                             }
                         });
-                        if (flag == 1) {
+                        if (flag === 1) {
                             //捉到所有被选中的，发异步进行删除
                             layer.close(layer.index);
                             window.parent.location.reload();
@@ -347,19 +381,21 @@
             }
         });
 
-        form.on('submit(addUserSure)', function (obj) {
+        form.on('submit(addLifeguardSure)', function (obj) {
             //验证后发送
             var data = {
-                "useraccount": obj.field.useraccount.toString()
-                , "username": obj.field.username.toString()
+                "lifeguardAccount": obj.field.lifeguardAccount.toString()
+                , "name": obj.field.name.toString()
                 , "password": obj.field.password.toString()
-                , "sex": obj.field.sex.toString()
-                , "age": obj.field.age
+                , "avatar": obj.field.avatar.toString()
+                , "detail": obj.field.detail.toString()
+                , "swimmingPoolId": obj.field.swimmingPoolId
+                , "phone" :obj.field.phone
             };
 
             var flag = 0;
             $.ajax({
-                url: "../../api/addUser",
+                url: "../../api/addLifeguard",
                 type: 'POST',
                 async: false, //使用同步的方式,true为异步方式
                 data: JSON.stringify(data),
@@ -384,7 +420,7 @@
         });
 
         //编辑用户和删除用户
-        table.on('tool(administrators)', function (obj) {
+        table.on('tool(lifeguard)', function (obj) {
             switch (obj.event) {
                 case 'edit':
                     layer.open({
@@ -392,8 +428,8 @@
                         maxmin: true,
                         shade: 0.4,
                         type: 1,
-                        content: $('#editUser'),//设置内容
-                        title: '编辑用户',//设置标题
+                        content: $('#editLifeguard'),//设置内容
+                        title: '编辑救生员',//设置标题
                         area: ['500px', '500px'],//设置宽高
                         closeBtn: 1,//  0不显示   1【默认】 关闭  2
                         shadeClose: true, //是否点击遮罩关闭
@@ -402,11 +438,14 @@
                             // console.log(obj.field);
                             if (obj) {
                                 // 取到弹出层里的元素，并把编辑的内容放进去
-                                $("#edit_userId").val(obj.data.userId);  //将选中的数据的id传到编辑页面的隐藏域，便于根据ID修改数据
-                                $("#edit_useraccount").val(obj.data.useraccount);  //密码
-                                $("#edit_password").val(obj.data.password);  //登录时间
-                                $("#edit_username").val(obj.data.username);  //登录名
-                                $("#edit_age").val(obj.data.age);  //登录名
+                                $("#edit_lifeguardId").val(obj.data.lifeguardId);  //将选中的数据的id传到编辑页面的隐藏域，便于根据ID修改数据
+                                $("#edit_lifeguardAccount").val(obj.data.lifeguardAccount);  //密码
+                                $("#edit_password").val(obj.data.password);
+                                $("#edit_name").val(obj.data.name);  //登录名
+                                $("#edit_swimmingPoolId").val(obj.data.swimmingPoolId);
+                                $("#edit_avatar").val(obj.data.avatar);
+                                $("#edit_phone").val(obj.data.phone);
+                                $("#edit_detail").val(obj.detail);
                                 // 记得重新渲染表单
                                 form.render();
                             }
@@ -417,7 +456,7 @@
                     var flag = 0;
                     layer.confirm('确认要删除吗？', function (index) {
                         $.ajax({
-                            url: "../../api/deleteUser/" + obj.data.userId,
+                            url: "../../api/deleteLifeguard/" + obj.data.lifeguardId,
                             type: 'GET',
                             async: false, //使用同步的方式,true为异步方式
                             // data:JSON.stringify(data),
@@ -432,7 +471,7 @@
                                 console.log(errorThrown);
                             }
                         });
-                        if (flag == 1) {
+                        if (flag === 1) {
                             obj.del(); //删除对应行（tr）的DOM结构
                             layer.close(index);
                             layer.msg('已删除!', {
@@ -450,17 +489,20 @@
             }
         });
 
-        form.on("submit(editUserSure)", function (obj) {
+        form.on("submit(editLifeguardSure)", function (obj) {
             var flag = 0;
             var data = {
-                "userId": obj.field.userId.toString()
-                , "useraccount": obj.field.useraccount.toString()
-                , "username": obj.field.username.toString()
+                "lifeguardId": obj.field.lifeguardId.toString()
+                , "lifeguardAccount": obj.field.lifeguardAccount.toString()
+                , "name": obj.field.name.toString()
                 , "password": obj.field.password.toString()
-                , "age": obj.field.age
+                , "swimmingPoolId": obj.field.swimmingPoolId
+                , "avatar": obj.field.avatar.toString()
+                , "phone" :obj.field.phone
+                , "detial":obj.field.detail.toString()
             };
             $.ajax({
-                url: "../../api/editUser",
+                url: "../../api/editLifeguard",
                 type: 'POST',
                 async: false, //使用同步的方式,true为异步方式
                 data: JSON.stringify(data),
@@ -475,7 +517,7 @@
                     console.log(errorThrown);
                 }
             });
-            if (flag == 1) {
+            if (flag === 1) {
                 layer.msg('修改成功!', {
                     icon: 1,
                     time: 1000

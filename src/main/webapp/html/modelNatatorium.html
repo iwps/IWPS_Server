@@ -1,10 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>游泳池列表</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" href="../static/layUIS/css/font.css"/>
+    <link rel="stylesheet" href="../static/layUIS/css/weadmin.css"/>
+    <link rel="stylesheet" href="../layUI/css/layui.css">
+
 </head>
+
 <body>
 
+
+<table id="natatorium" lay-filter="natatorium"></table>
+
+<!--添加表-->
+<div id="addNatatorium" style="display: none;">
+    <form class="layui-form" method="post">
+        <div>
+            <!--用空格占位，显得美观-->
+            <br/>
+            <br/>
+        </div>
+
+
+        <!--游泳池姓名-->
+        <div class="layui-form-item">
+            <label for="add_name" class="layui-form-label">
+                <span class="we-red">*</span>
+                水池名称
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_name" name="name"
+                       lay-verify="required|name" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+            </div>
+        </div>
+
+        <!--手机号码-->
+
+        <!--水位等级-->
+        <div class="layui-form-item">
+            <label for="add_waterLevel" class="layui-form-label">
+                <span class="we-red">*</span>
+                水位等级
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_waterLevel" name="waterLevel" autocomplete="" lay-verify="required|waterLevel"
+                       class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+            </div>
+
+        </div>
+
+        <!--所属游泳馆-->
+        <div class="layui-form-item">
+            <label for="add_swimmingPoolId" class="layui-form-label">
+                <span class="we-red"></span>所属游泳馆
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_swimmingPoolId" name="swimmingPoolId" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <!--备注-->
+        <div class="layui-form-item">
+            <label for="add_detail" class="layui-form-label">
+                备注
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="add_detail" name="detail" lay-verify="required|detail"
+                       autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+            </div>
+        </div>
+
+        <!--按钮-->
+        <div class="layui-form-item">
+            <label for="add_swimmingPoolId" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="addNatatoriumSure" lay-submit="">确定</button>
+            <button class="layui-btn layui-btn-normal" lay-filter="addNatatoriumCancel">取消</button>
+        </div>
+
+    </form>
+</div>
+
+<!--编辑表-->
+<div id="editNatatorium" style="display: none;">
+    <form class="layui-form">
+        <div>
+            <!--用空格占位，显得美观-->
+            <br/>
+            <br/>
+        </div>
+
+        <div class="layui-form-item" hidden>
+            <label for="edit_natatoriumId" class="layui-form-label">
+                <span class="we-red">*</span>游泳池Id
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_natatoriumId" name="natatoriumId" lay-verify="required"
+                       autocomplete="off"
+                       class="layui-input" disabled>
+            </div>
+
+        </div>
+
+        <!--水池名称-->
+        <div class="layui-form-item">
+            <label for="edit_name" class="layui-form-label">
+                <span class="we-red">*</span>水池名称
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_name" name="name" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
+
+        <!--水位等级-->
+        <div class="layui-form-item">
+            <label for="edit_waterLevel" class="layui-form-label">
+                <span class="we-red">*</span>
+                水位等级
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_waterLevel" name="waterLevel" autocomplete="" lay-verify="required|waterLevel"
+                       class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+            </div>
+
+        </div>
+
+        <!--所属游泳馆-->
+        <div class="layui-form-item">
+            <label for="edit_swimmingPoolId" class="layui-form-label">
+                <span class="we-red"></span>所属游泳馆
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_swimmingPoolId" name="swimmingPoolId" autocomplete="off"
+                       class="layui-input">
+            </div>
+        </div>
+
+        <!--备注-->
+        <div class="layui-form-item">
+            <label for="edit_detail" class="layui-form-label">
+                备注
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="edit_detail" name="detail" lay-verify="required" autocomplete=""
+                       class="layui-input" disabled>
+            </div>
+        </div>
+
+
+        <!--按键-->
+        <div class="layui-form-item">
+            <label for="edit_natatorium_sure" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="editNatatoriumSure" lay-submit="">确定</button>
+            <button class="layui-btn layui-btn-normal" lay-filter="editNatatoriumCancel" lay-submit="">取消</button>
+            <!--<input type="hidden" name="dataId" id="dataId" value="" />-->
+        </div>
+    </form>
+</div>
+
+
+<!--javaScript开始-->
+<script src="../layUI/layui.js" charset="utf-8"></script>
+<script src="../static/layUIS/js/admin.js" charset="utf-8"></script>
+<!--<script src="../../static/js/element-opt.js" charset="utf-8"></script>-->
+<script type="text/html" id="toolbarNatatorium">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-normal" lay-event="add">添加游泳池</button>
+        <button class="layui-btn " lay-event="deleteAll">批量删除</button>
+    </div>
+</script>
+
+<script type="text/html" id="barNatatorium">
+    <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="delete">删除</a>
+</script>
+
+
+<script>
+
+    layui.use(['table', 'jquery', 'layer', 'form'], function () {
+        var table = layui.table;
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+
+        //用户表实例
+        table.render({
+            elem: '#natatorium'
+            , id: 'idTest'//选中参数
+            , toolbar: '#toolbarNatatorium'
+            , title: '游泳池员表'
+            , text: {
+                none: '没有更多的游泳池员数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
+            }
+            , url: '../../api/listNatatorium' //数据接口
+            , page: true //开启分页
+            , limit: 10
+            , loading: true
+            , limits: [10, 15, 20, 25]
+            , cols: [[ //表头
+                {checkbox: true, fixed: 'left'}
+                , {field: 'natatoriumId', title: 'ID', sort: true, align: 'center'}
+                , {field: 'name', title: '水池名称', sort: true, align: 'center'}
+                , {field: 'waterLevel', title: '水位等级', align: 'center'}
+                , {field: 'swimmingPoolId', title: '所属游泳馆ID', align: 'center'}
+                , {field: 'detail', title: '备注', sort: true, align: 'center'}
+                , {title: '操作', toolbar: '#barNatatorium', align: 'center'}
+            ]]
+        });
+
+        //添加用户和批量删除用户
+        table.on('toolbar(natatorium)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'add':
+                    layer.open({
+                        fix: false, //不固定
+                        maxmin: true,
+                        shade: 0.4,
+                        type: 1,
+                        content: $('#addNatatorium'),//设置内容
+                        title: '添加游泳池',//设置标题
+                        area: ['500px', '500px'],//设置宽高
+                        closeBtn: 1,//  0不显示   1【默认】 关闭  2
+                        shadeClose: true //是否点击遮罩关闭
+                    });
+                    break;
+                case 'deleteAll'://删除选中
+                    var data = checkStatus.data;
+                    var idList = [];
+                    var flag = 0;
+                    for (var i in data) {
+                        idList.push(data[i].natatoriumId);
+                    }
+                    // console.log(idList.join(","));
+                    layer.confirm('确认要删除吗？' + idList, function (index) {
+                        $.ajax({
+                            url: "../../api/deleteAllNatatorium/",
+                            type: 'GET',
+                            async: false, //使用同步的方式,true为异步方式
+                            data: {data: idList.join(",")},
+                            dataType: 'JSON',
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (data) {
+                                flag = 1;
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log(jqXHR);
+                                console.log(textStatus);
+                                console.log(errorThrown);
+                            }
+                        });
+                        if (flag === 1) {
+                            //捉到所有被选中的，发异步进行删除
+                            layer.close(layer.index);
+                            window.parent.location.reload();
+                            layer.msg('删除选中成功', {
+                                icon: 1
+                            });
+                            // $(".layui-form-checked").not('.header').parents('tr').remove();
+                        } else {
+                            layer.msg('删除选中失败', {
+                                icon: 1
+                            });
+                        }
+                    });
+                    break;
+            }
+        });
+
+        form.on('submit(addNatatoriumSure)', function (obj) {
+            //验证后发送
+            var data = {
+                 "name": obj.field.name.toString()
+                , "waterLevel":obj.field.waterLevel.toString()
+                , "detail": obj.field.detail.toString()
+                , "swimmingPoolId": obj.field.swimmingPoolId
+            };
+
+            var flag = 0;
+            $.ajax({
+                url: "../../api/addNatatorium",
+                type: 'POST',
+                async: false, //使用同步的方式,true为异步方式
+                data: JSON.stringify(data),
+                dataType: 'JSON',
+                contentType: 'application/json;charset=UTF-8',
+                success: function (data) {
+                    // console.log(data);
+                    flag = 1;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+            layer.msg('添加成功', {
+                icon: 1
+            });
+            layer.close(layer.index);
+            window.parent.location.reload();
+            return false;
+        });
+
+        //编辑用户和删除用户
+        table.on('tool(natatorium)', function (obj) {
+            switch (obj.event) {
+                case 'edit':
+                    layer.open({
+                        fix: false, //不固定
+                        maxmin: true,
+                        shade: 0.4,
+                        type: 1,
+                        content: $('#editNatatorium'),//设置内容
+                        title: '编辑游泳池',//设置标题
+                        area: ['500px', '500px'],//设置宽高
+                        closeBtn: 1,//  0不显示   1【默认】 关闭  2
+                        shadeClose: true, //是否点击遮罩关闭
+                        success: function (layero, index) {
+                            var body = layui.layer.getChildFrame('body', index);
+                            // console.log(obj.field);
+                            if (obj) {
+                                // 取到弹出层里的元素，并把编辑的内容放进去
+                                $("#edit_natatoriumId").val(obj.data.natatoriumId);  //将选中的数据的id传到编辑页面的隐藏域，便于根据ID修改数据
+                                $("#edit_name").val(obj.data.name);  //登录名
+                                $("#edit_swimmingPoolId").val(obj.data.swimmingPoolId);
+                                $("#edit_waterLevel").val(obj.data.waterLevel);
+                                $("#edit_detail").val(obj.data.detail);
+                                // 记得重新渲染表单
+                                form.render();
+                            }
+                        },
+                    });
+                    break;
+                case 'delete':
+                    var flag = 0;
+                    layer.confirm('确认要删除吗？', function (index) {
+                        $.ajax({
+                            url: "../../api/deleteNatatorium/" + obj.data.natatoriumId,
+                            type: 'GET',
+                            async: false, //使用同步的方式,true为异步方式
+                            // data:JSON.stringify(data),
+                            dataType: 'JSON',
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (data) {
+                                flag = 1;
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log(jqXHR);
+                                console.log(textStatus);
+                                console.log(errorThrown);
+                            }
+                        });
+                        if (flag === 1) {
+                            obj.del(); //删除对应行（tr）的DOM结构
+                            layer.close(index);
+                            layer.msg('已删除!', {
+                                icon: 1,
+                                time: 1000
+                            });
+                        } else {
+                            layer.msg('删除失败!', {
+                                icon: 2,
+                                time: 1000
+                            });
+                        }
+                    });
+                    break;
+            }
+        });
+
+        form.on("submit(editNatatoriumSure)", function (obj) {
+            var flag = 0;
+            var data = {
+                "natatoriumId": obj.field.natatoriumId.toString()
+                , "name": obj.field.name.toString()
+                , "swimmingPoolId": obj.field.swimmingPoolId
+                , "waterLevel": obj.field.waterLevel.toString()
+                , "detail":obj.field.detail.toString()
+            };
+            $.ajax({
+                url: "../../api/editNatatorium",
+                type: 'POST',
+                async: false, //使用同步的方式,true为异步方式
+                data: JSON.stringify(data),
+                dataType: 'JSON',
+                contentType: 'application/json;charset=UTF-8',
+                success: function (data) {
+                    flag = 1;
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+            if (flag === 1) {
+                layer.msg('修改成功!', {
+                    icon: 1,
+                    time: 1000
+                });
+                layer.close(layer.index);
+                window.parent.location.reload();
+            } else {
+                layer.msg('修改失败!', {
+                    icon: 2,
+                    time: 1000
+                });
+            }
+            return false;
+        });
+    });
+
+
+</script>
+
+<!--需要引入 layui.use(['jquery'])用法，之后的函数实现全部在单页实现，再转到js文件上-->
 </body>
+
 </html>

@@ -1,18 +1,17 @@
 package com.shencangblue.iwps.controller.hardware;
 
+import com.shencangblue.iwps.dto.AdministratorsDto;
 import com.shencangblue.iwps.dto.ResponseObject;
 import com.shencangblue.iwps.dto.UserDto;
 import com.shencangblue.iwps.dto.UserHistoryDto;
 import com.shencangblue.iwps.entity.RFIDPackage;
 import com.shencangblue.iwps.entity.User;
+import com.shencangblue.iwps.entity.UserHistory;
 import com.shencangblue.iwps.service.UserHistoryService;
 import com.shencangblue.iwps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -90,6 +89,28 @@ public class RFIDController {
         userHistoryDto.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         System.out.println(userHistoryDto.getTime());
         userHistoryService.add(userHistoryDto);
+
+    }
+
+
+    /**
+     * 查询所有用户记录
+     */
+    @ResponseBody
+    @RequestMapping(value = "listUserHis",method = RequestMethod.GET)
+    private ResponseObject listUserHis(@RequestParam(value = "page",defaultValue = "1",required = true)
+                                             int page ,@RequestParam(value = "limit",defaultValue = "10",required = true)
+                                             int limit){
+        System.out.println("listUserHis");
+        UserHistoryDto dto=new UserHistoryDto();
+        dto.setLimit(limit);
+        dto.setPage(page);
+        ResponseObject<List<UserHistoryDto>> responseObject=new ResponseObject<>();
+        responseObject.setCode(0);
+        responseObject.setMsg("listUserHis");
+        responseObject.setData(userHistoryService.getList(dto));
+        responseObject.setCount(userHistoryService.selectCount());
+        return responseObject;
 
     }
 }

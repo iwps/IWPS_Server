@@ -60,19 +60,6 @@
         </div>
 
         <!--手机号码-->
-        <div class="layui-form-item">
-            <label for="add_phone" class="layui-form-label">
-                手机号码
-            </label>
-            <div class="layui-input-inline">
-                <input type="number" id="add_phone" name="phone" lay-verify="required|phone"
-                       autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-mid layui-word-aux">
-                请输入11位手机号码
-            </div>
-        </div>
-
 
         <!--头像-->
         <div class="layui-form-item">
@@ -432,10 +419,11 @@
                                 $("#edit_name").val(obj.data.name);  //登录名
                                 $("#edit_swimmingPoolId").val(obj.data.swimmingPoolId);
                                 $("#edit_avatar").val(obj.data.avatar);
+                                $("#edit_detail").val(obj.data.detail);
                                 // 记得重新渲染表单
                                 form.render();
                             }
-                        },
+                        }
                     });
                     break;
                 case 'delete':
@@ -484,6 +472,7 @@
                 , "password": obj.field.password.toString()
                 , "swimmingPoolId": obj.field.swimmingPoolId
                 , "avatar": obj.field.avatar.toString()
+                , "detial":obj.field.detail.toString()
             };
             $.ajax({
                 url: "../../api/editAdmin",

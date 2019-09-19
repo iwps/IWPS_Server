@@ -508,10 +508,15 @@
                             if (obj) {
                                 // 取到弹出层里的元素，并把编辑的内容放进去
                                 $("#edit_userId").val(obj.data.userId);  //将选中的数据的id传到编辑页面的隐藏域，便于根据ID修改数据
-                                $("#edit_useraccount").val(obj.data.useraccount);  //密码
+                                $("#edit_userAccount").val(obj.data.userAccount);  //密码
                                 $("#edit_password").val(obj.data.password);  //登录时间
-                                $("#edit_username").val(obj.data.username);  //登录名
-                                $("#edit_age").val(obj.data.age);  //登录名
+                                $("#edit_name").val(obj.data.name);  //登录名
+                                $("#edit_phone").val(obj.data.phone);  //登录名
+                                $("#edit_avatar").val(obj.data.avatar);
+                                $("#edit_email").val(obj.data.email);
+                                $("#edit_sex").val(obj.data.sex);
+                                $("#edit_swimmingGrade").val(obj.data.swimmingGrade);
+                                $("#edit_RFIDInfo").val(obj.data.RFIDInfo);
                                 // 记得重新渲染表单
                                 form.render();
                             }
@@ -558,11 +563,16 @@
         form.on("submit(editUserSure)", function (obj) {
             var flag = 0;
             var data = {
-                "userId": obj.field.userId.toString()
-                , "userAccount": obj.field.useraccount.toString()
-                , "username": obj.field.username.toString()
+                "userAccount": obj.field.userAccount.toString()
+                , "name": obj.field.name.toString()
                 , "password": obj.field.password.toString()
-                , "age": obj.field.age
+                , "avatar": obj.field.avatar.toString()
+                , "phone": obj.field.phone.toString()
+                , "detail": obj.field.password.toString()
+                , "email": obj.field.email.toString()
+                , "sex": obj.field.sex.toString()
+                , "swimmingGrade": obj.field.swimmingGrade.toString()
+                , "RFIDInfo": obj.field.RFIDInfo.toString()
             };
             $.ajax({
                 url: "../../api/editUser",
