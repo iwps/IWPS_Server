@@ -125,8 +125,8 @@
         });
 
         $(function () {
-            var userAccount = localStorage.getItem("userAccount");
-            $("#selfname").html("欢迎您:"+userAccount);
+            var superAdministratorAccount = localStorage.getItem("superAdministratorAccount");
+            $("#selfname").html("欢迎您:"+superAdministratorAccount);
         });
 
         element.on('nav(usermenu)', function(elem){
@@ -136,7 +136,7 @@
                     break;
                 case 'logout':
                     layer.msg('退出成功！');
-                    localStorage.removeItem("userAccount");
+                    localStorage.removeItem("superAdministratorAccount");
                     localStorage.setItem("login",0);
                     window.location.href = './login.html';
                     break;

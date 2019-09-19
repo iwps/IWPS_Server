@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.NatatoriumDao">
     <select id="validate" resultType="Natatorium">
-        select natatoriumId,name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail
+        select natatoriumId,name,waterLevel,swimmingPoolId,detail
         from natatorium n
         <where>
             1=1
@@ -20,7 +20,7 @@
     <!-- 列出所有的列表 -->
     <select id="select" resultType="Natatorium">
         <bind name="pageNum" value="(page-1)*limit"/>
-        select natatoriumId,name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail
+        select natatoriumId,name,waterLevel,swimmingPoolId,detail
         from natatorium n
         <where>
             1=1
@@ -52,14 +52,14 @@
 
     <!-- 插入操作 -->
     <insert id="insert">
-        insert into natatorium(name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail)
-        select #{name},#{waterLevel},#{swimmingPoolId},#{numberOfPools},#{waterTempertaure},#{detail}
+        insert into natatorium(name,waterLevel,swimmingPoolId,detail)
+        select #{name},#{waterLevel},#{swimmingPoolId},#{detail}
         where not exists(select 1 from natatorium where  natatoriumId=#{natatoriumId})
     </insert>
 
     <!-- 通过Id来寻找特定单个目标 -->
     <select id="selectById" resultType="natatorium">
-        select natatoriumId,name,waterLevel,swimmingPoolId,numberOfPools,waterTempertaure,detail
+        select natatoriumId,name,waterLevel,swimmingPoolId,detail
         from natatorium
         where natatoriumId = #{_parameter}
     </select>
@@ -77,12 +77,6 @@
             </if>
             <if test="swimmingPoolId != null">
                 swimmingPoolId = #{swimmingPoolId},
-            </if>
-            <if test="numberOfPools != null">
-                numberOfPools = #{numberOfPools},
-            </if>
-            <if test="waterTempertaure != null">
-                waterTempertaure = #{waterTempertaure},
             </if>
             <if test="detail != null">
                 detail = #{detail},

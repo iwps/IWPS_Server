@@ -8,8 +8,8 @@ public class Natatorium {
     private  String name;
     private  float waterLevel;
     private String swimmingPoolId;
-    private String NumberOfPools;
-    private String waterTemperature;
+//    private String NumberOfPools;
+//    private String waterTemperature;
     private String detail;
 
     public long getNatatoriumId() {
@@ -42,22 +42,6 @@ public class Natatorium {
 
     public void setSwimmingPoolId(String swimmingPoolId) {
         this.swimmingPoolId = swimmingPoolId;
-    }
-
-    public String getNumberOfPools() {
-        return NumberOfPools;
-    }
-
-    public void setNumberOfPools(String numberOfPools) {
-        NumberOfPools = numberOfPools;
-    }
-
-    public String getWaterTemperature() {
-        return waterTemperature;
-    }
-
-    public void setWaterTemperature(String waterTemperature) {
-        this.waterTemperature = waterTemperature;
     }
 
     public String getDetail() {

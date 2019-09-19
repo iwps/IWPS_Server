@@ -436,5 +436,45 @@
     </div>
 
     <script src="../static/welcome/dist/js/main.min.js"></script>
+
+
+<script type="text/javascript" src="../layUI/layui.js" charset="utf-8"></script>
+<script type="text/javascript">
+	layui.extend({
+		admin: '{/}../static/layUIS/js/admin'
+	});
+	layui.use(['jquery', 'element','util', 'admin', 'carousel'], function() {
+		var element = layui.element,
+				$ = layui.jquery,
+				carousel = layui.carousel,
+				util = layui.util,
+				admin = layui.admin;
+		//建造实例
+		carousel.render({
+			elem: '.weadmin-shortcut'
+			,width: '100%' //设置容器宽度
+			,arrow: 'none' //始终显示箭头
+			,trigger: 'hover'
+			,autoplay:false
+		});
+
+		carousel.render({
+			elem: '.weadmin-notice'
+			,width: '100%' //设置容器宽度
+			,arrow: 'none' //始终显示箭头
+			,trigger: 'hover'
+			,autoplay:true
+		});
+
+
+		function setTimeAgo(y, M, d, H, m, s,id){
+			var str = util.timeAgo(new Date(y, M||0, d||1, H||0, m||0, s||0));
+			$(id).html(str);
+			console.log(str);
+		}
+	});
+</script>
 </body>
 </html>
+
+
