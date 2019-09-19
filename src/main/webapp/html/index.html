@@ -109,7 +109,11 @@
         var menu = layui.menu;
         var element = layui.element;
         $(function () {
-            menu.getMenu('../json/menu.json');
+            if (localStorage.getItem("administratorAccount")===null){
+                menu.getMenu('../json/menu.json');
+            }else {
+                menu.getMenu('../json/menu-lite.json');
+            }
             var login = JSON.parse(localStorage.getItem("login"));
             if (login) {
                 if (login === 0) {
@@ -126,6 +130,9 @@
 
         $(function () {
             var superAdministratorAccount = localStorage.getItem("superAdministratorAccount");
+            if (superAdministratorAccount===null){
+               superAdministratorAccount = localStorage.getItem("administratorAccount");
+            }
             $("#selfname").html("欢迎您:"+superAdministratorAccount);
         });
 
@@ -136,7 +143,11 @@
                     break;
                 case 'logout':
                     layer.msg('退出成功！');
-                    localStorage.removeItem("superAdministratorAccount");
+                    if (localStorage.getItem("administratorAccount")===null){
+                        localStorage.removeItem("superAdministratorAccount");
+                    }else {
+                        localStorage.removeItem("administratorAccount");
+                    }
                     localStorage.setItem("login",0);
                     window.location.href = './login.html';
                     break;

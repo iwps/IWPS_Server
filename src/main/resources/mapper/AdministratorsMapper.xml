@@ -127,7 +127,7 @@
     <select id="selectByAccount" resultType="Administrators">
         select administratorId,administratorAccount,name,administratorAccount,password,avatar,swimmingPoolId,detail
         from administrators
-        where administratorId = #{_parameter}
+        where administratorAccount = #{_parameter}
     </select>
 
     <update id="update">

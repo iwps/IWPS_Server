@@ -10,11 +10,8 @@
         from userhistory u
         <where>
             1=1
-            <if test="userId != null">
-                and u.userId = #{userId}
-            </if>
             <if test="RFIDInfo != null">
-                and u.RFIDInfo=#{RFIDInfo}
+                and u.RFIDInfo = #{RFIDInfo}
             </if>
             <if test="time != null">
                 and u.time = #{time}
@@ -32,7 +29,7 @@
                 and u.userId = #{userId}
             </if>
             <if test="RFIDInfo != null">
-                and u.RFIDInfo=#{RFIDInfo}
+                and u.RFIDInfo = #{RFIDInfo}
             </if>
             <if test="time != null">
                 and u.time = #{time}

@@ -47,10 +47,12 @@ public class UserHistoryServiceImpl implements UserHistoryService {
     @Override
     public List<UserHistoryDto> getList(UserHistoryDto userHistoryDto) {
         List<UserHistoryDto> result = new ArrayList<>();
+        System.out.println(userHistoryDto.getLimit()+":"+userHistoryDto.getPage()+"===================");
         List<UserHistory> userHistoryList = userHistoryDao.select(userHistoryDto);
         for (UserHistory userHistory : userHistoryList) {
             UserHistoryDto userHistoryDto_ = new UserHistoryDto();
             result.add(userHistoryDto_);
+            System.out.println(userHistory.getUserId());
             //字段赋值，常用于类赋值
             BeanUtils.copyProperties(userHistory, userHistoryDto_);
             userHistoryDto.setpId(0);

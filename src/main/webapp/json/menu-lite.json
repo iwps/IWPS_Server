@@ -55,20 +55,6 @@
       ]
     },
     {
-      "id": 8,
-      "name": "其他功能",
-      "icon": "&#xe705;",
-      "url": "",
-      "children": [
-        {
-          "id": 9,
-          "name": "新增管理员审批",
-          "icon": "",
-          "url": "../html/history/history-donkey.html"
-        }
-      ]
-    },
-    {
       "id": 10,
       "name": "界面导航",
       "icon": "&#xe70b;",

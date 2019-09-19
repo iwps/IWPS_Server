@@ -30,7 +30,7 @@
         <input class="loginin" value="登录" lay-submit="" lay-filter="login" style="width:100%;" type="submit">
         <hr class="hr20">
         <div>
-            输入用户的账户信息
+            可以接受管理员与超级管理员的登录请求，注意登录的账号格式。
         </div>
     </form>
 </div>
@@ -45,35 +45,68 @@
         var form = layui.form;
         var admin = layui.admin;
         var $ = layui.jquery;
+        var data;
+        var flag = 0;
         form.on('submit(login)', function (obj) {
-            var data = {
-                "superAdministratorAccount": obj.field.superAdministratorAccount,
-                "password": obj.field.password
-            };
+            console.log(obj.field.superAdministratorAccount);
+            if (obj.field.superAdministratorAccount.length <= 6) {
+                data = {
+                    "superAdministratorAccount": obj.field.superAdministratorAccount,
+                    "password": obj.field.password
+
+                };
+                localStorage.setItem("login", 0);
+                $.ajax({
+                    url: "../../superAdmin/login",
+                    type: 'POST',
+                    async: false, //使用同步的方式,true为异步方式
+                    data: JSON.stringify(data),
+                    dataType: 'JSON',
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (data) {
+                        localStorage.setItem("superAdministratorAccount", obj.field.superAdministratorAccount);
+                        console.log(data.msg);
+                        data.msg === "OK" ? flag = 1 : flag = 0
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        // alert("出错了");
+                        console.log(jqXHR);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    }
+                });
+            } else {
+                data = {
+                    "administratorAccount": obj.field.superAdministratorAccount,
+                    "password": obj.field.password
+                };
+                localStorage.setItem("login", 0);
+                $.ajax({
+                    url: "../../admin/login",
+                    type: 'POST',
+                    async: false, //使用同步的方式,true为异步方式
+                    data: JSON.stringify(data),
+                    dataType: 'JSON',
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (data) {
+                        localStorage.setItem("administratorAccount", obj.field.superAdministratorAccount);
+                        console.log(data.msg);
+                        data.msg === "OK" ? flag = 1:flag = 0
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        // alert("出错了");
+                        console.log(jqXHR);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    }
+                });
+            }
+
             console.log(JSON.stringify(data));
 
-            var flag = 0;
-            localStorage.setItem("login", 0);
-            $.ajax({
-                url: "../../superAdmin/login",
-                type: 'POST',
-                async: false, //使用同步的方式,true为异步方式
-                data: JSON.stringify(data),
-                dataType: 'JSON',
-                contentType: 'application/json;charset=UTF-8',
-                success: function (data) {
-                    localStorage.setItem("superAdministratorAccount", obj.field.superAdministratorAccount);
-                    console.log(data.msg);
-                    data.msg === "OK" ? flag = 1:flag = 0
 
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    // alert("出错了");
-                    console.log(jqXHR);
-                    console.log(textStatus);
-                    console.log(errorThrown);
-                }
-            });
             if (flag === 1) {
                 layer.msg("登陆成功!", function () {
                     // location.href='../'
