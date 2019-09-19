@@ -2,6 +2,7 @@ package com.shencangblue.iwps.controller.hardware;
 
 import com.shencangblue.iwps.dto.NatatoriumHistoryDto;
 import com.shencangblue.iwps.dto.ResponseObject;
+import com.shencangblue.iwps.dto.SwimmingPoolDto;
 import com.shencangblue.iwps.dto.UserHistoryDto;
 import com.shencangblue.iwps.entity.NatatoriumHistory;
 import com.shencangblue.iwps.entity.UserHistory;
@@ -79,5 +80,28 @@ public class HistoryController {
             responseObject.setCode(0);
         };
         return responseObject;
+    }
+
+
+    /**
+     * 查询所有用户记录
+     */
+    @ResponseBody
+    @RequestMapping(value = "listNumberOfPool",method = RequestMethod.GET)
+    private ResponseObject listNumberOfPool(@RequestParam(value = "page",defaultValue = "1",required = true)
+                                               int page , @RequestParam(value = "limit",defaultValue = "10",required = true)
+                                               int limit){
+        System.out.println("listNumberOfPool");
+        NatatoriumHistoryDto dto=new NatatoriumHistoryDto();
+        SwimmingPoolDto sdto = new SwimmingPoolDto();
+        dto.setLimit(limit);
+        dto.setPage(page);
+        ResponseObject<List<NatatoriumHistoryDto>> responseObject=new ResponseObject<>();
+        responseObject.setCode(0);
+        responseObject.setMsg("listNataHis");
+        responseObject.setData(natatoriumHistoryService.getList(dto));
+        responseObject.setCount(natatoriumHistoryService.selectCount());
+        return responseObject;
+
     }
 }
