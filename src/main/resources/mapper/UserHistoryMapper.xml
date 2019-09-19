@@ -3,4 +3,86 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.UserHistoryDao">
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="UserHistory">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select userDataId,userId, RFIDInfo,sensorId,waterPressure,natatoriumSensorId,time
+        from userhistory u
+        <where>
+            1=1
+            <if test="userId != null">
+                and u.userId = #{userId}
+            </if>
+            <if test="RFIDInfo != null">
+                and u.RFIDInfo=#{RFIDInfo}
+            </if>
+            <if test="time != null">
+                and u.time = #{time}
+            </if>
+        </where>
+        order by userDataId desc limit #{pageNum},#{limit}
+    </select>
+
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from userhistory u
+        <where>
+            1=1
+            <if test="userId != null">
+                and u.userId = #{userId}
+            </if>
+            <if test="RFIDInfo != null">
+                and u.RFIDInfo=#{RFIDInfo}
+            </if>
+            <if test="time != null">
+                and u.time = #{time}
+            </if>
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into userhistory (userId, RFIDInfo, sensorId, waterPressure, natatoriumSensorId, time)
+        values (#{userId}, #{RFIDInfo}, #{sensorId}, #{waterPressure}, #{natatoriumSensorId},#{time})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectByUserId" resultType="UserHistory">
+        select userDataId, userId, RFIDInfo, sensorId, waterPressure, natatoriumSensorId, time
+        from userhistory
+        where userId = #{_parameter}
+    </select>
+
+    <!-- 更新数据 -->
+    <update id="update">
+        update userhistory
+        <set>
+            <if test="userId != null">
+                userId = #{userId},
+            </if>
+            <if test="RFIDInfo != null">
+                RFIDInfo=#{RFIDInfo},
+            </if>
+            <if test="sensorId != null">
+                sensorId = #{sensorId},
+            </if>
+            <if test="waterPressure != null">
+                waterPressure = #{waterPressure},
+            </if>
+            <if test="natatoriumSensorId != null">
+                natatoriumSensorId = #{natatoriumSensorId},
+            </if>
+            <if test="time != null">
+                time = #{time},
+            </if>
+        </set>
+        where userDataId=#{userDataId}
+    </update>
+
+    <!-- 删除数据 -->
+    <delete id="deleteById">
+        delete
+        from userhistory
+        where userDataId = #{_parameter}
+    </delete>
 </mapper>

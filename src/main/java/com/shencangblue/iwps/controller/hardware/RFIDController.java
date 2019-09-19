@@ -2,7 +2,10 @@ package com.shencangblue.iwps.controller.hardware;
 
 import com.shencangblue.iwps.dto.ResponseObject;
 import com.shencangblue.iwps.dto.UserDto;
+import com.shencangblue.iwps.dto.UserHistoryDto;
 import com.shencangblue.iwps.entity.RFIDPackage;
+import com.shencangblue.iwps.entity.User;
+import com.shencangblue.iwps.service.UserHistoryService;
 import com.shencangblue.iwps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +24,13 @@ public class RFIDController {
 
     private final
     UserService userService;
+    private final
+    UserHistoryService userHistoryService;
 
     @Autowired
-    public RFIDController(UserService userService) {
+    public RFIDController(UserService userService ,UserHistoryService userHistoryService) {
         this.userService = userService;
+        this.userHistoryService= userHistoryService;
     }
 
 
@@ -37,11 +43,11 @@ public class RFIDController {
         ResponseObject<String> responseObject = new ResponseObject<String>();
         if(validateUserByRFID(RFIDInfo.trim())){
             System.out.println("已经存在");
-            //addDonkeyHistory(RFIDInfo.trim());
+            addUserHistory(RFIDInfo.trim());
             responseObject.setMsg("插入历史");
         }else {
             System.out.println("还不存在");
-           // addDonkeyByFRID(RFIDInfo.trim());
+            addUserByFRID(RFIDInfo.trim());
             responseObject.setMsg("插入实体");
         }
         return responseObject;
@@ -50,33 +56,40 @@ public class RFIDController {
     private boolean validateUserByRFID(String RFIDInfo){
         UserDto userDto = new UserDto();
         userDto.setRFIDInfo(RFIDInfo);
-        return userService.validate(userDto);
+        User user = userService.selectByRFID(RFIDInfo);
+       // return userService.validate(userDto);
+        return user != null;
     }
 
-//    //添加到驴个体表中
-//    public boolean addDonkeyByFRID(String RFIDInfo){
-//        DonkeyDto donkeyDto = new DonkeyDto();
-//        donkeyDto.setHomeId(1L);
-//        donkeyDto.setGender("雄");
-//        donkeyDto.setSize(15l);
-//        donkeyDto.setRFIDInfo(RFIDInfo);
-//        return donkeyService.add(donkeyDto);
-//        return true;
-//    }
-//
-//    public boolean addDonkeyHistory(String RFIDInfo){
-//        DonkeyDto donkeyDto = new DonkeyDto();
-//        donkeyDto.setRFIDInfo(RFIDInfo);
-//        donkeyDto.setPage(1);
-//        donkeyDto.setLimit(100);
-//        List<DonkeyDto> donkeyList = donkeyService.getList(donkeyDto);
-//
-//        DonkeyHistoryDto donkeyHistoryDto = new DonkeyHistoryDto();
-//        donkeyHistoryDto.setRFIDInfo(RFIDInfo);
-//        donkeyHistoryDto.setSize(donkeyList.get(0).getSize());
-//        donkeyHistoryDto.setDonkeyId(donkeyList.get(0).getDonkeyId());
-//        donkeyHistoryDto.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-//        return donkeyHistoryService.add(donkeyHistoryDto);
-//        return true;
-//    }
+    //添加到用户个体表中
+    private void addUserByFRID(String RFIDInfo){
+        UserDto userDto = new UserDto();
+        userDto.setUserAccount("user"+RFIDInfo);
+        userDto.setName("新用户-未改名");
+        userDto.setPassword("123456");
+        userDto.setAvatar("null");
+        userDto.setSwimmingGrade("未定义");
+        userDto.setRFIDInfo(RFIDInfo);
+        userService.addUser(userDto);
+    }
+
+    private void addUserHistory(String RFIDInfo){
+        UserDto userDto = new UserDto();
+        userDto.setRFIDInfo(RFIDInfo);
+        userDto.setPage(1);
+        userDto.setLimit(100);
+        List<UserDto> userList = userService.getList(userDto);
+        System.out.println(userList.get(0).getUserId());
+        System.out.println(RFIDInfo);
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        UserHistoryDto userHistoryDto = new UserHistoryDto();
+        userHistoryDto.setRFIDInfo(RFIDInfo);
+        userHistoryDto.setUserId(userList.get(0).getUserId());
+        userHistoryDto.setSensorId("1");
+        userHistoryDto.setWaterPressure("0");
+        userHistoryDto.setTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        System.out.println(userHistoryDto.getTime());
+        userHistoryService.add(userHistoryDto);
+
+    }
 }

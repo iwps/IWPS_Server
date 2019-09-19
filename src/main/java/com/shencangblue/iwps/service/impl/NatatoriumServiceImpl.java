@@ -12,8 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class NatatoriumServiceImpl implements NatatoriumService {
+    private final NatatoriumDao natatoriumDao;
+
     @Autowired
-    private NatatoriumDao natatoriumDao;
+    public NatatoriumServiceImpl(NatatoriumDao natatoriumDao) {
+        this.natatoriumDao = natatoriumDao;
+    }
 
     @Override
     public boolean validate(NatatoriumDto natatoriumDto) {

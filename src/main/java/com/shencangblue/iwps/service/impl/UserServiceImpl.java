@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User selectByRFID(String RFIDInfo) {
+        return userDao.selectByRFID(RFIDInfo);
+    }
+
+    @Override
     public UserDto getByIdDto(long userId) {
         UserDto userDto = new UserDto();
         User user = userDao.selectById(userId);

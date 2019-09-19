@@ -13,8 +13,12 @@ import java.util.List;
 @Service
 public class SuperAdministratorServiceImpl implements SuperAdministratorService {
 
+    private final SuperAdministratorDao superAdministratorDao;
+
     @Autowired
-    private SuperAdministratorDao superAdministratorDao;
+    public SuperAdministratorServiceImpl(SuperAdministratorDao superAdministratorDao) {
+        this.superAdministratorDao = superAdministratorDao;
+    }
 
     @Override
     public boolean validate(SuperAdministratorDto superAdministratorsDto) {

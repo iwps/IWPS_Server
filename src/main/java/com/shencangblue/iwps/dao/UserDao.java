@@ -82,6 +82,14 @@ public interface UserDao {
     User  selectByAccount(String userAccount);
 
     /**
+     * 使用RFID获取用户
+     * @param RFIDInfo RFID
+     * @return 影响行数：如用户名将修改成与其他用户的用户名相同，影响行数为0，修改成功，影响行数为1
+     */
+
+    User  selectByRFID(String RFIDInfo);
+
+    /**
      * 修改
      * @param user 用户
      * @return 影响行数：如用户名将修改成与其他用户的用户名相同，影响行数为0，修改成功，影响行数为1

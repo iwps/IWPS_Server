@@ -13,8 +13,12 @@ import java.util.List;
 @Service
 public class LifeguardServiceImpl implements LifeguardService {
 
+    private final LifeguardDao lifeguardDao;
+
     @Autowired
-    private LifeguardDao lifeguardDao;
+    public LifeguardServiceImpl(LifeguardDao lifeguardDao) {
+        this.lifeguardDao = lifeguardDao;
+    }
 
     @Override
     public boolean validate(LifeguardDto lifeguardDto) {

@@ -29,6 +29,14 @@ public interface UserService {
      */
     User selectByAccount(String userAccount);
 
+
+    /**
+     * 获取指定account的用户
+     * @param RFIDInfo
+     * @return
+     */
+    User selectByRFID(String RFIDInfo);
+
     /**
      * 获取指定Id的用户
      * @param userId

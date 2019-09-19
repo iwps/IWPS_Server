@@ -7,6 +7,7 @@ public class UserHistory {
     private String waterPressure;
     private String RFIDInfo;
     private String time;
+    private String natatoriumSensorId;
 
     public String getRFIDInfo() {
         return RFIDInfo;
@@ -56,5 +57,13 @@ public class UserHistory {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getNatatoriumSensorId() {
+        return natatoriumSensorId;
+    }
+
+    public void setNatatoriumSensorId(String natatoriumSensorId) {
+        this.natatoriumSensorId = natatoriumSensorId;
     }
 }

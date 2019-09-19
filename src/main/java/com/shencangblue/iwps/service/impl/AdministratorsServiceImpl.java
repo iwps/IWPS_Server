@@ -14,8 +14,12 @@ import java.util.List;
 @Service
 public class AdministratorsServiceImpl implements AdministratorsService {
 
+    private final AdministratorsDao administratorsDao;
+
     @Autowired
-    private AdministratorsDao administratorsDao;
+    public AdministratorsServiceImpl(AdministratorsDao administratorsDao) {
+        this.administratorsDao = administratorsDao;
+    }
 
     @Override
     public boolean validate(AdministratorsDto AdministratorsDto) {

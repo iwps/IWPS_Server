@@ -70,11 +70,19 @@
         where userId = #{_parameter}
     </select>
 
+
     <!-- 通过Account来寻找特定单个目标 -->
     <select id="selectByAccount" resultType="User">
         select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,detail,RFIDInfo
         from user
         where userAccount = #{_parameter}
+    </select>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectByRFID" resultType="User">
+        select userId,name,userAccount,password,avatar,swimmingGrade,email,phone,sex,detail,RFIDInfo
+        from user
+        where RFIDInfo = #{_parameter}
     </select>
 
 

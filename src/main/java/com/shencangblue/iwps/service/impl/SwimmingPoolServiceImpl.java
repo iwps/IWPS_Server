@@ -12,8 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class SwimmingPoolServiceImpl implements SwimmingPoolService {
+    private final SwimmingPoolDao swimmingPoolDao;
+
     @Autowired
-    private SwimmingPoolDao swimmingPoolDao;
+    public SwimmingPoolServiceImpl(SwimmingPoolDao swimmingPoolDao) {
+        this.swimmingPoolDao = swimmingPoolDao;
+    }
 
     @Override
     public boolean validate(SwimmingPoolDto swimmingPoolDto) {
