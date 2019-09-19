@@ -3,4 +3,87 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shencangblue.iwps.dao.NatatoriumHistoryDao">
+
+    <!-- 列出所有的列表 -->
+    <select id="select" resultType="NatatoriumHistory">
+        <bind name="pageNum" value="(page-1)*limit"/>
+        select natatoriumDataId,natatoriumId,sensorId,waterTemperature, airHumidity,numberOfPools,time
+        from natatoriumhistory nh
+        <where>
+            1=1
+            <if test="sensorId != null">
+                and nh.sensorId = #{sensorId}
+            </if>
+            <if test="time != null">
+                and nh.time = #{time}
+            </if>
+        </where>
+        order by natatoriumDataId desc limit #{pageNum},#{limit}
+    </select>
+
+    <!--统计-->
+    <select id="count" resultType="int">
+        select count(*) from natatoriumhistory nh
+        <where>
+            1=1
+            <if test="natatoriumId != null">
+                and nh.natatoriumId = #{natatoriumId}
+            </if>
+            <if test="sensorId != null">
+                and nh.sensorId = #{sensorId}
+            </if>
+            <if test="time != null">
+                and nh.time = #{time}
+            </if>
+        </where>
+    </select>
+
+    <!-- 插入操作 -->
+    <insert id="insert">
+        insert into natatoriumhistory (natatoriumId, sensorId, airHumidity, waterTemperature, numberOfPools, time)
+        values (#{natatoriumId}, #{sensorId}, #{airHumidity}, #{waterTemperature}, #{numberOfPools},#{time})
+    </insert>
+
+    <!-- 通过Id来寻找特定单个目标 -->
+    <select id="selectByNatatoriumId" resultType="NatatoriumHistory">
+        select natatoriumDataId, natatoriumId, sensorId, airHumidity, waterTemperature, numberOfPools, time
+        from natatoriumhistory
+        where natatoriumId = #{_parameter}
+    </select>
+
+    <!-- 更新数据 -->
+    <update id="update">
+        update natatoriumhistory
+        <set>
+            <if test="natatoriumId != null">
+                natatoriumId = #{natatoriumId},
+            </if>
+            <if test="sensorId != null">
+                sensorId=#{sensorId},
+            </if>
+            <if test="airHumidity != null">
+                airHumidity = #{airHumidity},
+            </if>
+            <if test="waterTemperature != null">
+                waterTemperature = #{waterTemperature},
+            </if>
+            <if test="natatoriumSensorId != null">
+                natatoriumSensorId = #{natatoriumSensorId},
+            </if>
+            <if test="numberOfPools != null">
+                numberOfPools = #{numberOfPools},
+            </if>
+            <if test="time != null">
+                time = #{time},
+            </if>
+        </set>
+        where natatoriumDataId=#{natatoriumDataId}
+    </update>
+
+    <!-- 删除数据 -->
+    <delete id="deleteById">
+        delete
+        from natatoriumhistory
+        where natatoriumDataId = #{_parameter}
+    </delete>
 </mapper>

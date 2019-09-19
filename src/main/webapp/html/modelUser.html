@@ -382,7 +382,7 @@
                 , {field: 'email', title: '电子邮件', align: 'center'}
                 , {field: 'phone', title: '手机号码', align: 'center'}
                 , {field: 'swimmingGrade', title: '下水等级', align: 'center'}
-                , {field: 'RFIDInfo', title: '卡号', align: 'center'}
+                , {field: 'rfidinfo', title: '卡号', align: 'center'}
                 , {field: 'detail', title: '备注', align: 'center'}
                 , {title: '操作', toolbar: '#baruserTable', align: 'center'}
             ]]
@@ -460,7 +460,7 @@
                 , "email": obj.field.email.toString()
                 , "sex": obj.field.sex.toString()
                 , "swimmingGrade": obj.field.swimmingGrade.toString()
-                , "RFIDInfo": obj.field.RFIDInfo.toString()
+                , "rfidinfo": obj.field.RFIDInfo.toString()
             };
             var flag = 0;
             $.ajax({
@@ -572,7 +572,7 @@
                 , "email": obj.field.email.toString()
                 , "sex": obj.field.sex.toString()
                 , "swimmingGrade": obj.field.swimmingGrade.toString()
-                , "RFIDInfo": obj.field.RFIDInfo.toString()
+                , "rfidinfo": obj.field.RFIDInfo.toString()
             };
             $.ajax({
                 url: "../../api/editUser",

@@ -80,7 +80,7 @@
                             <div class="service-item">
                                 <h4>李宏辉</h4>
                                 <div class="line-dec"></div>
-                                <p>负责Android端的开发工作。</p>
+                                <p>负责Android端的开发工作和硬件的协调。</p>
                             </div>
                         </div>
                         <div class="col-md-6">

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>数据分析</title>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />-->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" href="../static/layUIS/css/font.css"/>
+    <link rel="stylesheet" href="../static/layUIS/css/weadmin.css"/>
+
+</head>
+<body>
+
+<div>
+    <!--待添加-->
+</div>
+<div class="charts-body">
+    <blockquote class="layui-elem-quote">用户数据变动</blockquote>
+    <table id="userhistory" lay-filter="userhistory"></table>
+</div>
+
+</body>
+
+<!--javaScript基础配置-->
+<script src="../layUI/layui.js" charset="utf-8"></script>
+<script src="../static/layUIS/js/admin.js" charset="utf-8"></script>
+<script src="../static/layUIS/js/echarts.min.js"></script>
+<script type="text/javascript">
+    layui.use(['jquery','table','layer', 'form', 'element','laypage'], function (){
+        var laypage = layui.laypage;
+        var table = layui.table;
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+
+        //用户综合表渲染
+        table.render({
+            elem: '#userhistory'
+            ,id: 'idTest'//选中参数
+            // ,toolbar: '#toolbardonkeyTable'
+            ,title:'用户综合表'
+            ,text: {
+                none: '没有更多的数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
+            }
+            ,url: '../../rfid/listUserHis' //数据接口
+            // ,where: {version:1.1,page:1}//请求参数
+            ,page: true //开启分页
+            ,limit: 10
+            ,loading:true
+            ,limits : [10,15,20,25]
+            ,cols: [[ //表头，UserId中准备添加用户名
+                {checkbox: true, fixed: 'left'}
+                ,{field: 'userDataId', title: '用户事件ID', sort: true, align:'center'}
+                ,{field: 'userId', title: '用户ID', sort: true, align:'center'}
+                ,{field: 'sensorId', title: '绑定Zigbee设备ID', sort: true, align:'center'}
+                ,{field: 'waterPressure', title: '水压值', sort: true, align:'center'}
+                ,{field: 'time', title: '事件发生时间', sort: true, align:'center'}
+                ,{field: 'natatoriumSensorId', title: '报警事件游泳池ID', sort: true, align:'center'}
+                ,{field: 'rfidinfo', title: '用户卡号', sort: true, align:'center'}
+            ]]
+        });
+    });
+</script>
+
+</html>
