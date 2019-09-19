@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <title>泳池水温分析</title>
+    <title>泳池湿度分析</title>
     <meta name="renderer" content="webkit"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />-->
@@ -62,14 +62,14 @@
 <div class="charts-body">
     <blockquote class="layui-elem-quote">游泳池的信息</blockquote>
     <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-    <div id="temperatureChart" style="width: 100%;height:400px;"></div>
+    <div id="airHumChart" style="width: 100%;height:400px;"></div>
 </div>
 
 
 
 <div class="charts-body">
-    <blockquote class="layui-elem-quote">温度数据表</blockquote>
-    <table id="temperatureTable" lay-filter="temperatureTable"></table>
+    <blockquote class="layui-elem-quote">湿度数据表</blockquote>
+    <table id="airHumTable" lay-filter="airHumTable"></table>
 </div>
 
 <!--表头-->
@@ -135,7 +135,7 @@
                 // $('#homeChoose').append(new Option());
                 $.each(data.data, function (index, item) {
                     axis.push(item.natatoriumId);
-                    SeriesData.push(item.waterTemperature);
+                    SeriesData.push(item.airHumidity);
                 });
             },
             error:function(jqXHR,textStatus,errorThrown) {
@@ -145,17 +145,17 @@
             }
         });
 
-        var myChart = echarts.init(document.getElementById('temperatureChart'));
+        var myChart = echarts.init(document.getElementById('airHumChart'));
         // 指定图表的配置项和数据
         var option = {
             title: {
-                text: '温度'
+                text: '湿度'
             },
             tooltip: {
                 trigger: 'axis'
             },
             legend: {
-                data:['游泳池温度']
+                data:['游泳池湿度']
             },
             grid: {
                 left: '3%',
@@ -183,7 +183,7 @@
                 {
                     type : 'value',
                     axisLabel : {
-                        formatter: '{value} °C'
+                        formatter: '{value} %rh'
                     },
                     max: function(value) {
                         return value.max + 10;
@@ -195,7 +195,7 @@
             ],
             series: [
                 {
-                    name:'温度信息',
+                    name:'湿度信息',
                     type:'line',
                     stack: '总量',
                     data:SeriesData.reverse(),
@@ -220,12 +220,12 @@
 
         //游泳池表渲染
         table.render({
-            elem: '#temperatureTable'
+            elem: '#airHumTable'
             ,id: 'idTest'//选中参数
             // ,toolbar: '#toolbardonkeyTable'
-            ,title:'温度表'
+            ,title:'湿度表'
             ,text: {
-                none: '没有更多的温度数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
+                none: '没有更多的湿度数据' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
             }
             ,url: '../../history/listNataHis' //数据接口
             // ,where: {version:1.1,page:1}//请求参数
@@ -237,7 +237,7 @@
                 {checkbox: true, fixed: 'left'}
                 ,{field: 'natatoriumDataId', title: '时间序列', sort: true, align:'center'}
                 ,{field: 'natatoriumId', title: '游泳池ID', sort: true, align:'center'}
-                ,{field: 'waterTemperature', title: '温度', sort: true, align:'center'}
+                ,{field: 'airHumidity', title: '湿度', sort: true, align:'center'}
                 ,{field: 'time', title: '时间戳', sort: true, align:'center'}
             ]],
         });
@@ -263,7 +263,7 @@
             //折线图重新显示
             $.ajax({
                 url: "../../history/listNataHis?natatoriumId="+$("#natatoriumChoose").val(),
-            type: 'GET',
+                type: 'GET',
                 async: false, //使用同步的方式,true为异步方式
                 // data:JSON.stringify(data),
                 dataType:'JSON',
@@ -273,7 +273,7 @@
                     SeriesData.length = 0;
                     $.each(data.data, function (index, item) {
                         axis.push(item.natatoriumDataId);
-                        SeriesData.push(item.waterTemperature);
+                        SeriesData.push(item.airHumidity);
                     });
                     myChart.setOption(option);
                 },

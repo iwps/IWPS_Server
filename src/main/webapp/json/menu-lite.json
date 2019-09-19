@@ -44,7 +44,27 @@
           "id": 33,
           "name": "游泳馆传感器信息监控",
           "icon": "",
-          "url": "../html/table/table-home.html"
+          "url": "",
+          "children": [
+            {
+              "id": 41,
+              "name": "泳池温度信息监控",
+              "icon": "",
+              "url": "../html/historySensorTemp.html"
+            },
+            {
+              "id": 42,
+              "name": "泳池湿度信息监控",
+              "icon": "",
+              "url": "../html/historySensorAirHum.html"
+            },
+            {
+              "id": 43,
+              "name": "用户压力信息监控",
+              "icon": "",
+              "url": "../html/historySensorPress.html"
+            }
+          ]
         },
         {
           "id": 34,
