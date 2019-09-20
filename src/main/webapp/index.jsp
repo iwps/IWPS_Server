@@ -103,7 +103,7 @@
         </div>
     </div>
 
-    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >建站模板</a></div>
+    <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" ></a></div>
     <div class="parallax-content projects-content" id="portfolio">
         <div class="container">
             <div class="row">
@@ -111,73 +111,82 @@
                     <div id="owl-testimonials" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/1st-big-item.jpg" data-lightbox="image-1"><img src="./static/img/1st-item.jpg" alt=""></a>
+                                <a href="./static/img/p1.png" data-lightbox="image-1"><img src="./static/img/p2.png" alt=""></a>
                                 <div class="text-content">
-                                    <h4>很棒的笔记本</h4>
-                                    <span>$18.00</span>
+                                    <h4>服务器</h4>
+                                    <span>spring+springMVC+mybatis</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/2nd-big-item.jpg" data-lightbox="image-1"><img src="./static/img/2nd-item.jpg" alt=""></a>
+                                <a href="./static/img/p2.png" data-lightbox="image-1"><img src="./static/img/p2.png" alt=""></a>
                                 <div class="text-content">
-                                    <h4>古董装饰照片</h4>
-                                    <span>$27.00</span>
+                                    <h4>硬件</h4>
+                                    <span>多种传感器组合</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/3rd-big-item.jpg" data-lightbox="image-1"><img src="./static/img/3rd-item.jpg" alt=""></a>
+                                <a href="./static/img/p3.png" data-lightbox="image-1"><img src="./static/img/p3.png" alt=""></a>
                                 <div class="text-content">
-                                    <h4>工作手包</h4>
-                                    <span>$36.00</span>
+                                    <h4>移动端</h4>
+                                    <span>Android端开发</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/4th-big-item.jpg" data-lightbox="image-1"><img src="./static/img/4th-item.jpg" alt=""></a>
+                                <a href="./static/img/p4.png" data-lightbox="image-1"><img src="./static/img/p4.png" alt=""></a>
                                 <div class="text-content">
-                                    <h4>智能手表</h4>
-                                    <span>$45.00</span>
+                                    <h4>项目简述</h4>
+                                    <span>项目的大致作用</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/5th-big-item.jpg" data-lightbox="image-1"><img src="./static/img/5th-item.jpg" alt=""></a>
+                                <a href="./static/img/p5.png" data-lightbox="image-1"><img src="./static/img/p5.png" alt=""></a>
                                 <div class="text-content">
-                                    <h4>PC平板电脑绘图</h4>
-                                    <span>$63.00</span>
+                                    <h4>截图展示</h4>
+                                    <span>效果展示</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/6th-big-item.jpg" data-lightbox="image-1"><img src="./static/img/6th-item.jpg" alt=""></a>
+                                <a href="./static/img/p6s.jpg" data-lightbox="image-1"><img src="./static/img/p6s.jpg" alt=""></a>
                                 <div class="text-content">
-                                    <h4>健康的奶昔</h4>
-                                    <span>$77.00</span>
+                                    <h4>服务器截图</h4>
+                                    <span>后台主页</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/2nd-big-item.jpg" data-lightbox="image-1"><img src="./static/img/2nd-item.jpg" alt=""></a>
+                                <a href="./static/img/p7s.png" data-lightbox="image-1"><img src="./static/img/p7s.png" alt=""></a>
                                 <div class="text-content">
-                                    <h4>古董装饰照片</h4>
-                                    <span>$84.50</span>
+                                    <h4>服务器截图</h4>
+                                    <span>后台管理</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="./static/img/1st-big-item.jpg" data-lightbox="image-1"><img src="./static/img/1st-item.jpg" alt=""></a>
+                                <a href="./static/img/p8s.jpg" data-lightbox="image-1"><img src="./static/img/p8s.jpg" alt=""></a>
                                 <div class="text-content">
-                                    <h4>令人敬畏的笔记本</h4>
-                                    <span>$96.75</span>
+                                    <h4>移动端截图</h4>
+                                    <span>信息界面</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="./static/img/p9s.jpg" data-lightbox="image-1"><img src="./static/img/p9s.jpg" alt=""></a>
+                                <div class="text-content">
+                                    <h4>移动端截图</h4>
+                                    <span>报警界面</span>
                                 </div>
                             </div>
                         </div>
@@ -196,26 +205,26 @@
                     <section id="first-tab-group" class="tabgroup">
                       <div id="tab1">
                         <img src="./static/img/1st-tab.jpg" alt="">
-                        <p>请不要在模板收集站点上重新分发我们的模板ZIP文件。 您可以制作屏幕截图并返回我们网站的链接。 此模板可供最终用户用于个人或商业目的。</p>
+                        <p>用户与救生员可在移动平台登录与注册。并在移动端查看响应的信息，能够查看部分游泳池和游泳馆的信息并对一些信息进行。</p>
                       </div>
                       <div id="tab2">
                         <img src="./static/img/2nd-tab.jpg" alt="">
-                        <p>测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试.</p>
+                        <p>服务器能够按照不同角色对不同的模型进行管理，并在线上以可视化的方式对数据进行观测。</p>
                       </div>
                       <div id="tab3">
                         <img src="./static/img/3rd-tab.jpg" alt="">
-                        <p>测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试.</p>
+                        <p>硬件端使用了RFID/ZigBee/温湿度传感器/压力传感器。利用zigBee自组网的特性将终端节点和协调器/路由定义到用户和游泳池上，来做信息标记</p>
                       </div>
                       <div id="tab4">
                         <img src="./static/img/4th-tab.jpg" alt="">
-                        <p>测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试测试测试 测试测试.</p>
+                        <p>web前端方面还有改进的空间，硬件和服务器的通信也有改进空间。</p>
                       </div>
                     </section>
                     <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                      <li><a href="#tab1" class="active">2008 - 2014</a></li>
-                      <li><a href="#tab2">2014 - 2016</a></li>
-                      <li><a href="#tab3">2016 - 2019</a></li>
-                      <li><a href="#tab4">2019 - Now</a></li>
+                      <li><a href="#tab1" class="active">移动端</a></li>
+                      <li><a href="#tab2">服务器端</a></li>
+                      <li><a href="#tab3">硬件端</a></li>
+                      <li><a href="#tab4">其他</a></li>
                     </ul>
                     </div>
                 </div>
@@ -270,16 +279,8 @@
                     <div class="primary-button">
                         <a href="#home">回到顶部</a>
                     </div>
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    </ul>
-                    <p>Copyright &copy; 2019 Company Name
+                    <p>Copyright &copy; 2019 Company IWPS
 
-            		- Design: <a rel="nofollow noopener" href="#"><em>TemplateMo</em></a> - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">测试测试测试</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
                 </div>
             </div>
         </div>
