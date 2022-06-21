@@ -23,7 +23,7 @@
     <!-- mybatis 版本-->
     <mybatis.version>3.5.1</mybatis.version>
     <!-- mysql 版本-->
-    <mysql.version>8.0.16</mysql.version>
+    <mysql.version>8.0.28</mysql.version>
   </properties>
 
   <dependencies>
